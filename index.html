@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+
+<html lang="en-US" prefix="og: https://ogp.me/ns#">
+
+  <head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(){this.v="1.2.3",this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this._triggerListener.bind(this),this.touchStartHandler=this._onTouchStart.bind(this),this.touchMoveHandler=this._onTouchMove.bind(this),this.touchEndHandler=this._onTouchEnd.bind(this),this.clickHandler=this._onClick.bind(this),this.interceptedClicks=[],window.addEventListener("pageshow",t=>{this.persisted=t.persisted}),window.addEventListener("DOMContentLoaded",()=>{this._preconnect3rdParties()}),this.delayedScripts={normal:[],async:[],defer:[]},this.trash=[],this.allJQueries=[]}_addUserInteractionListener(t){if(document.hidden){t._triggerListener();return}this.triggerEvents.forEach(e=>window.addEventListener(e,t.userEventHandler,{passive:!0})),window.addEventListener("touchstart",t.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",t.touchStartHandler),document.addEventListener("visibilitychange",t.userEventHandler)}_removeUserInteractionListener(){this.triggerEvents.forEach(t=>window.removeEventListener(t,this.userEventHandler,{passive:!0})),document.removeEventListener("visibilitychange",this.userEventHandler)}_onTouchStart(t){"HTML"!==t.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),t.target.addEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"onclick","rocket-onclick"),this._pendingClickStarted())}_onTouchMove(t){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),t.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"rocket-onclick","onclick"),this._pendingClickFinished()}_onTouchEnd(t){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}_onClick(t){t.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"rocket-onclick","onclick"),this.interceptedClicks.push(t),t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),this._pendingClickFinished()}_replayClicks(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach(t=>{t.target.dispatchEvent(new MouseEvent("click",{view:t.view,bubbles:!0,cancelable:!0}))})}_waitForPendingClicks(){return new Promise(t=>{this._isClickPending?this._pendingClickFinished=t:t()})}_pendingClickStarted(){this._isClickPending=!0}_pendingClickFinished(){this._isClickPending=!1}_renameDOMAttribute(t,e,r){t.hasAttribute&&t.hasAttribute(e)&&(event.target.setAttribute(r,event.target.getAttribute(e)),event.target.removeAttribute(e))}_triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}_preconnect3rdParties(){let t=[];document.querySelectorAll("script[type=rocketlazyloadscript]").forEach(e=>{if(e.hasAttribute("src")){let r=new URL(e.src).origin;r!==location.origin&&t.push({src:r,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}}),t=[...new Map(t.map(t=>[JSON.stringify(t),t])).values()],this._batchInjectResourceHints(t,"preconnect")}async _loadEverythingNow(){this.lastBreath=Date.now(),this._delayEventListeners(this),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async);try{await this._triggerDOMContentLoaded(),await this._triggerWindowLoad()}catch(t){console.error(t)}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this._waitForPendingClicks().then(()=>{this._replayClicks()}),this._emptyTrash()}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach(t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)})}async _transformScript(t){return new Promise((await this._littleBreath(),navigator.userAgent.indexOf("Firefox/")>0||""===navigator.vendor)?e=>{let r=document.createElement("script");[...t.attributes].forEach(t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),r.setAttribute(e,t.nodeValue))}),t.text&&(r.text=t.text),r.hasAttribute("src")?(r.addEventListener("load",e),r.addEventListener("error",e)):(r.text=t.text,e());try{t.parentNode.replaceChild(r,t)}catch(i){e()}}:async e=>{function r(){t.setAttribute("data-rocket-status","failed"),e()}try{let i=t.getAttribute("data-rocket-type"),n=t.getAttribute("data-rocket-src");t.text,i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",function r(){t.setAttribute("data-rocket-status","executed"),e()}),t.addEventListener("error",r),n?(t.removeAttribute("data-rocket-src"),t.src=n):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}catch(s){r()}})}async _loadScriptsFromList(t){let e=t.shift();return e&&e.isConnected?(await this._transformScript(e),this._loadScriptsFromList(t)):Promise.resolve()}_preloadAllScripts(){this._batchInjectResourceHints([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}_batchInjectResourceHints(t,e){var r=document.createDocumentFragment();t.forEach(t=>{let i=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(i){let n=document.createElement("link");n.href=i,n.rel=e,"preconnect"!==e&&(n.as="script"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(n.crossOrigin=!0),t.crossOrigin&&(n.crossOrigin=t.crossOrigin),t.integrity&&(n.integrity=t.integrity),r.appendChild(n),this.trash.push(n)}}),document.head.appendChild(r)}_delayEventListeners(t){let e={};function r(t,r){!function t(r){!e[r]&&(e[r]={originalFunctions:{add:r.addEventListener,remove:r.removeEventListener},eventsToRewrite:[]},r.addEventListener=function(){arguments[0]=i(arguments[0]),e[r].originalFunctions.add.apply(r,arguments)},r.removeEventListener=function(){arguments[0]=i(arguments[0]),e[r].originalFunctions.remove.apply(r,arguments)});function i(t){return e[r].eventsToRewrite.indexOf(t)>=0?"rocket-"+t:t}}(t),e[t].eventsToRewrite.push(r)}function i(t,e){let r=t[e];Object.defineProperty(t,e,{get:()=>r||function(){},set(i){t["rocket"+e]=r=i}})}r(document,"DOMContentLoaded"),r(window,"DOMContentLoaded"),r(window,"load"),r(window,"pageshow"),r(document,"readystatechange"),i(document,"onreadystatechange"),i(window,"onload"),i(window,"onpageshow")}_delayJQueryReady(t){let e;function r(r){if(r&&r.fn&&!t.allJQueries.includes(r)){r.fn.ready=r.fn.init.prototype.ready=function(e){return t.domReadyFired?e.bind(document)(r):document.addEventListener("rocket-DOMContentLoaded",()=>e.bind(document)(r)),r([])};let i=r.fn.on;r.fn.on=r.fn.init.prototype.on=function(){if(this[0]===window){function t(t){return t.split(" ").map(t=>"load"===t||0===t.indexOf("load.")?"rocket-jquery-load":t).join(" ")}"string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=t(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach(e=>{let r=arguments[0][e];delete arguments[0][e],arguments[0][t(e)]=r})}return i.apply(this,arguments),this},t.allJQueries.push(r)}e=r}r(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){r(t)}})}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._littleBreath(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._littleBreath(),window.dispatchEvent(new Event("rocket-load")),await this._littleBreath(),window.rocketonload&&window.rocketonload(),await this._littleBreath(),this.allJQueries.forEach(t=>t(window).trigger("rocket-jquery-load")),await this._littleBreath();let t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this._littleBreath(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}_handleDocumentWrite(){let t=new Map;document.write=document.writeln=function(e){let r=document.currentScript;r||console.error("WPRocket unable to document.write this: "+e);let i=document.createRange(),n=r.parentElement,s=t.get(r);void 0===s&&(s=r.nextSibling,t.set(r,s));let a=document.createDocumentFragment();i.setStart(a,0),a.appendChild(i.createContextualFragment(e)),n.insertBefore(a,s)}}async _littleBreath(){Date.now()-this.lastBreath>45&&(await this._requestAnimFrame(),this.lastBreath=Date.now())}async _requestAnimFrame(){return document.hidden?new Promise(t=>setTimeout(t)):new Promise(t=>requestAnimationFrame(t))}_emptyTrash(){this.trash.forEach(t=>t.remove())}static run(){let t=new RocketLazyLoadScripts;t._addUserInteractionListener(t)}}RocketLazyLoadScripts.run();</script>
+	  <script type="rocketlazyloadscript" async data-rocket-src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1868224991189710"
+     crossorigin="anonymous"></script>
+    
+    <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="profile" href="https://gmpg.org/xfn/11">
+    
+    		<style type="text/css"></style>
+		
+<!-- Search Engine Optimization by Rank Math - https://s.rankmath.com/home -->
+<title>ICC World Cup 2023 Schedule is Finally Here! Get Ready to Roar - Gossips World</title><style id="wpr-usedcss">.heateor_sss_horizontal_sharing .heateor_sss_svg{color:#fff;border-width:0;border-style:solid;border-color:transparent}.heateor_sss_horizontal_sharing .heateorSssTCBackground{color:#666}.heateor_sss_horizontal_sharing span.heateor_sss_svg:hover{border-color:transparent}.heateor_sss_vertical_sharing span.heateor_sss_svg{color:#fff;border-width:0;border-style:solid;border-color:transparent}.heateor_sss_vertical_sharing .heateorSssTCBackground{color:#666}.heateor_sss_vertical_sharing span.heateor_sss_svg:hover{border-color:transparent}div.heateor_sss_mobile_footer{display:none}@media screen and (max-width:783px){.heateor_sss_vertical_sharing{display:none!important}div.heateor_sss_bottom_sharing .heateorSssTCBackground{background-color:#fff}div.heateor_sss_bottom_sharing{width:100%!important;left:0!important}div.heateor_sss_bottom_sharing a{width:11.111111111111%!important}div.heateor_sss_bottom_sharing .heateor_sss_svg{width:100%!important}div.heateor_sss_bottom_sharing div.heateorSssTotalShareCount{font-size:1em!important;line-height:21px!important}div.heateor_sss_bottom_sharing div.heateorSssTotalShareText{font-size:.7em!important;line-height:0!important}div.heateor_sss_mobile_footer{display:block;height:30px}.heateor_sss_bottom_sharing{padding:0!important;display:block!important;width:auto!important;bottom:-2px!important;top:auto!important}.heateor_sss_bottom_sharing .heateorSssSharingArrow{display:none}.heateor_sss_bottom_sharing .heateorSssTCBackground{margin-right:1.1em!important}}.wp-block-archives{box-sizing:border-box}:where(.wp-block-button__link){border-radius:9999px;box-shadow:none;padding:calc(.667em + 2px) calc(1.333em + 2px);text-decoration:none}:where(.wp-block-calendar table:not(.has-background) th){background:#ddd}.wp-block-categories{box-sizing:border-box}:where(.wp-block-columns.has-background){padding:1.25em 2.375em}:where(.wp-block-post-comments input[type=submit]){border:none}:where(.wp-block-file__button){border-radius:2em;padding:.5em 1em}:where(.wp-block-file__button):is(a):active,:where(.wp-block-file__button):is(a):focus,:where(.wp-block-file__button):is(a):hover,:where(.wp-block-file__button):is(a):visited{box-shadow:none;color:#fff;opacity:.85;text-decoration:none}.wp-block-group{box-sizing:border-box}ol.wp-block-latest-comments{box-sizing:border-box;margin-left:0}.wp-block-latest-comments .wp-block-latest-comments{padding-left:0}.wp-block-latest-comments__comment{line-height:1.1;list-style:none;margin-bottom:1em}.wp-block-latest-posts{box-sizing:border-box}.wp-block-latest-posts.wp-block-latest-posts__list{list-style:none;padding-left:0}.wp-block-latest-posts.wp-block-latest-posts__list li{clear:both}ol,ul{box-sizing:border-box}:where(.wp-block-navigation.has-background .wp-block-navigation-item a:not(.wp-element-button)),:where(.wp-block-navigation.has-background .wp-block-navigation-submenu a:not(.wp-element-button)){padding:.5em 1em}:where(.wp-block-navigation .wp-block-navigation__submenu-container .wp-block-navigation-item a:not(.wp-element-button)),:where(.wp-block-navigation .wp-block-navigation__submenu-container .wp-block-navigation-submenu a:not(.wp-element-button)),:where(.wp-block-navigation .wp-block-navigation__submenu-container .wp-block-navigation-submenu button.wp-block-navigation-item__content),:where(.wp-block-navigation .wp-block-navigation__submenu-container .wp-block-pages-list__item button.wp-block-navigation-item__content){padding:.5em 1em}:where(p.has-text-color:not(.has-link-color)) a{color:inherit}.wp-block-search__button{margin-left:.625em;word-break:normal}.wp-block-search__button svg{fill:currentColor;min-height:1.5em;min-width:1.5em;vertical-align:text-bottom}:where(.wp-block-search__button){border:1px solid #ccc;padding:.375em .625em}.wp-block-search__inside-wrapper{display:flex;flex:auto;flex-wrap:nowrap;max-width:100%}.wp-block-search__label{width:100%}.wp-block-search__input{border:1px solid #949494;flex-grow:1;margin-left:0;margin-right:0;min-width:3em;padding:8px;text-decoration:unset!important}:where(.wp-block-search__button-inside .wp-block-search__inside-wrapper){border:1px solid #949494;padding:4px}:where(.wp-block-search__button-inside .wp-block-search__inside-wrapper) .wp-block-search__input{border:none;border-radius:0;padding:0 0 0 .25em}:where(.wp-block-search__button-inside .wp-block-search__inside-wrapper) .wp-block-search__input:focus{outline:0}:where(.wp-block-search__button-inside .wp-block-search__inside-wrapper) :where(.wp-block-search__button){padding:.125em .5em}.wp-block-search.aligncenter .wp-block-search__inside-wrapper{margin:auto}:where(pre.wp-block-verse){font-family:inherit}.wp-element-button{cursor:pointer}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.aligncenter{clear:both}.screen-reader-text{clip:rect(1px,1px,1px,1px);word-wrap:normal!important;border:0;-webkit-clip-path:inset(50%);clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.screen-reader-text:focus{clip:auto!important;background-color:#ddd;-webkit-clip-path:none;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style*=border-top-color]){border-top-style:solid}html :where([style*=border-right-color]){border-right-style:solid}html :where([style*=border-bottom-color]){border-bottom-style:solid}html :where([style*=border-left-color]){border-left-style:solid}html :where([style*=border-width]){border-style:solid}html :where([style*=border-top-width]){border-top-style:solid}html :where([style*=border-right-width]){border-right-style:solid}html :where([style*=border-bottom-width]){border-bottom-style:solid}html :where([style*=border-left-width]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}body{--wp--preset--color--black:#000000;--wp--preset--color--cyan-bluish-gray:#abb8c3;--wp--preset--color--white:#ffffff;--wp--preset--color--pale-pink:#f78da7;--wp--preset--color--vivid-red:#cf2e2e;--wp--preset--color--luminous-vivid-orange:#ff6900;--wp--preset--color--luminous-vivid-amber:#fcb900;--wp--preset--color--light-green-cyan:#7bdcb5;--wp--preset--color--vivid-green-cyan:#00d084;--wp--preset--color--pale-cyan-blue:#8ed1fc;--wp--preset--color--vivid-cyan-blue:#0693e3;--wp--preset--color--vivid-purple:#9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple:linear-gradient(135deg,rgba(6, 147, 227, 1) 0%,rgb(155, 81, 224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan:linear-gradient(135deg,rgb(122, 220, 180) 0%,rgb(0, 208, 130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange:linear-gradient(135deg,rgba(252, 185, 0, 1) 0%,rgba(255, 105, 0, 1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red:linear-gradient(135deg,rgba(255, 105, 0, 1) 0%,rgb(207, 46, 46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray:linear-gradient(135deg,rgb(238, 238, 238) 0%,rgb(169, 184, 195) 100%);--wp--preset--gradient--cool-to-warm-spectrum:linear-gradient(135deg,rgb(74, 234, 220) 0%,rgb(151, 120, 209) 20%,rgb(207, 42, 186) 40%,rgb(238, 44, 130) 60%,rgb(251, 105, 98) 80%,rgb(254, 248, 76) 100%);--wp--preset--gradient--blush-light-purple:linear-gradient(135deg,rgb(255, 206, 236) 0%,rgb(152, 150, 240) 100%);--wp--preset--gradient--blush-bordeaux:linear-gradient(135deg,rgb(254, 205, 165) 0%,rgb(254, 45, 45) 50%,rgb(107, 0, 62) 100%);--wp--preset--gradient--luminous-dusk:linear-gradient(135deg,rgb(255, 203, 112) 0%,rgb(199, 81, 192) 50%,rgb(65, 88, 208) 100%);--wp--preset--gradient--pale-ocean:linear-gradient(135deg,rgb(255, 245, 203) 0%,rgb(182, 227, 212) 50%,rgb(51, 167, 181) 100%);--wp--preset--gradient--electric-grass:linear-gradient(135deg,rgb(202, 248, 128) 0%,rgb(113, 206, 126) 100%);--wp--preset--gradient--midnight:linear-gradient(135deg,rgb(2, 3, 129) 0%,rgb(40, 116, 252) 100%);--wp--preset--duotone--dark-grayscale:url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale:url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow:url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red:url('#wp-duotone-blue-red');--wp--preset--duotone--midnight:url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow:url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green:url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange:url('#wp-duotone-blue-orange');--wp--preset--font-size--small:13px;--wp--preset--font-size--medium:20px;--wp--preset--font-size--large:36px;--wp--preset--font-size--x-large:42px;--wp--preset--spacing--20:0.44rem;--wp--preset--spacing--30:0.67rem;--wp--preset--spacing--40:1rem;--wp--preset--spacing--50:1.5rem;--wp--preset--spacing--60:2.25rem;--wp--preset--spacing--70:3.38rem;--wp--preset--spacing--80:5.06rem;--wp--preset--shadow--natural:6px 6px 9px rgba(0, 0, 0, .2);--wp--preset--shadow--deep:12px 12px 50px rgba(0, 0, 0, .4);--wp--preset--shadow--sharp:6px 6px 0px rgba(0, 0, 0, .2);--wp--preset--shadow--outlined:6px 6px 0px -3px rgba(255, 255, 255, 1),6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp:6px 6px 0px rgba(0, 0, 0, 1)}:where(.is-layout-flex){gap:.5em}body .is-layout-flow>.aligncenter{margin-left:auto!important;margin-right:auto!important}:where(.wp-block-columns.is-layout-flex){gap:2em}#ez-toc-container{background:#f9f9f9;border:1px solid #aaa;border-radius:4px;-webkit-box-shadow:0 1px 1px rgba(0,0,0,.05);box-shadow:0 1px 1px rgba(0,0,0,.05);display:table;margin-bottom:1em;padding:10px;position:relative;width:auto}div.ez-toc-widget-container{padding:0;position:relative}div.ez-toc-widget-container ul{display:block}div.ez-toc-widget-container li{border:none;padding:0}div.ez-toc-widget-container ul.ez-toc-list{padding:10px}#ez-toc-container ul ul{margin-left:1.5em}#ez-toc-container li,#ez-toc-container ul{padding:0}#ez-toc-container li,#ez-toc-container ul,#ez-toc-container ul li,div.ez-toc-widget-container,div.ez-toc-widget-container li{background:0 0;list-style:none;line-height:1.6;margin:0;overflow:hidden;z-index:1}#ez-toc-container p.ez-toc-title{text-align:left;line-height:1.45;margin:0;padding:0}.ez-toc-title-container{display:table;width:100%}.ez-toc-title,.ez-toc-title-toggle{display:inline;text-align:left;vertical-align:middle}.ez-toc-btn{display:inline-block;font-weight:400}#ez-toc-container div.ez-toc-title-container+ul.ez-toc-list{margin-top:1em}#ez-toc-container a{color:#444;box-shadow:none;text-decoration:none;text-shadow:none;display:inline-flex;align-items:stretch;flex-wrap:nowrap}#ez-toc-container a:visited{color:#9f9f9f}#ez-toc-container a:hover{text-decoration:underline}.ez-toc-widget-container ul.ez-toc-list li::before{content:' ';position:absolute;left:0;right:0;height:30px;line-height:30px;z-index:-1}.ez-toc-widget-container ul.ez-toc-list li.active{background-color:#ededed;height:auto!important}.ez-toc-widget-container li.active>a{font-weight:900}.ez-toc-btn{padding:6px 12px;margin-bottom:0;font-size:14px;line-height:1.428571429;text-align:center;white-space:nowrap;vertical-align:middle;cursor:pointer;background-image:none;border:1px solid transparent;border-radius:4px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-o-user-select:none;user-select:none}.ez-toc-btn:focus{outline:#333 dotted thin;outline:-webkit-focus-ring-color auto 5px;outline-offset:-2px}.ez-toc-btn:focus,.ez-toc-btn:hover{color:#333;text-decoration:none}.ez-toc-btn.active,.ez-toc-btn:active{background-image:none;outline:0;-webkit-box-shadow:inset 0 3px 5px rgba(0,0,0,.125);box-shadow:inset 0 3px 5px rgba(0,0,0,.125)}.ez-toc-btn-default{color:#333;background-color:#fff;-webkit-box-shadow:inset 0 1px 0 rgba(255,255,255,.15),0 1px 1px rgba(0,0,0,.075);box-shadow:inset 0 1px 0 rgba(255,255,255,.15),0 1px 1px rgba(0,0,0,.075);text-shadow:0 1px 0 #fff;background-image:-webkit-gradient(linear,left 0,left 100%,from(#fff),to(#e0e0e0));background-image:-webkit-linear-gradient(top,#fff 0,#e0e0e0 100%);background-image:-moz-linear-gradient(top,#fff 0,#e0e0e0 100%);background-image:linear-gradient(to bottom,#fff 0,#e0e0e0 100%);background-repeat:repeat-x;border-color:#ccc}.ez-toc-btn-default.active,.ez-toc-btn-default:active,.ez-toc-btn-default:focus,.ez-toc-btn-default:hover{color:#333;background-color:#ebebeb;border-color:#adadad}.ez-toc-btn-default.active,.ez-toc-btn-default:active{background-image:none;background-color:#e0e0e0;border-color:#dbdbdb}.ez-toc-btn-xs{padding:5px 10px;font-size:12px;line-height:1.5;border-radius:3px}.ez-toc-btn-xs{padding:1px 5px}.ez-toc-btn-default:active{-webkit-box-shadow:inset 0 3px 5px rgba(0,0,0,.125);box-shadow:inset 0 3px 5px rgba(0,0,0,.125)}.ez-toc-btn:active{background-image:none}.ez-toc-btn-default:focus,.ez-toc-btn-default:hover{background-color:#e0e0e0;background-position:0 -15px}.ez-toc-pull-right{float:right!important;margin-left:10px}#ez-toc-container input{position:absolute;left:-999em}#ez-toc-container input[type=checkbox]:checked+nav,#ez-toc-widget-container input[type=checkbox]:checked+nav{opacity:0;max-height:0;border:none;display:none}#ez-toc-container label{float:right;position:relative;font-size:16px;padding:0 4px 0 5px;border:1px solid #999191;border-radius:5px;cursor:pointer;width:30px;left:10px}#ez-toc-container .ez-toc-toggle label{float:right;position:relative;font-size:16px;padding:0;border:1px solid #999191;border-radius:5px;cursor:pointer;left:10px;width:35px}div#ez-toc-container p.ez-toc-title{display:contents}div#ez-toc-container{padding-right:20px}#ez-toc-container a.ez-toc-toggle{display:flex;align-items:center;color:#444;background:inherit;border:inherit}.ez-toc-widget-container ul li a{padding-left:10px;display:inline-flex;align-items:stretch;flex-wrap:nowrap}div#ez-toc-container p.ez-toc-title{font-size:120%}div#ez-toc-container p.ez-toc-title{font-weight:500}div#ez-toc-container ul li{font-size:95%}div#ez-toc-container nav ul ul li ul li{font-size:90%!important}.ez-toc-container-direction{direction:ltr}.ez-toc-counter ul{counter-reset:item}.ez-toc-counter nav ul li a::before{content:counters(item, ".", decimal) ". ";display:inline-block;counter-increment:item;flex-grow:0;flex-shrink:0;margin-right:.2em;float:left}.ez-toc-widget-container ul{counter-reset:item}.ez-toc-widget-container nav ul li a::before{content:counters(item, ".", decimal) ". ";display:inline-block;counter-increment:item;flex-grow:0;flex-shrink:0;margin-right:.2em;float:left}html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:block}h1{font-size:2em;margin:.67em 0}a{background-color:transparent}small{font-size:80%}img{border-style:none}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}[type=button],[type=submit],button{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:ButtonText dotted 1px}fieldset{padding:.35em .75em .625em}legend{-webkit-box-sizing:border-box;box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{-webkit-box-sizing:border-box;box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}template{display:none}[hidden]{display:none}*,::after,::before{-webkit-box-sizing:inherit;box-sizing:inherit}html{-webkit-box-sizing:border-box;box-sizing:border-box}body,button,input,optgroup,select,textarea{color:#0f161a;font-family:arial,ubuntu,roboto,noto,-apple-system,helvetica,sans-serif;font-size:1rem;line-height:1.5}h1,h2,h3{clear:both}p{margin-bottom:1.5em}a,h1,h2,h3,p{word-wrap:break-word;overflow-wrap:break-word}body{background:#f5f7f8}ol,ul{margin:0 0 1.5em 3em}ul{list-style:disc}ol{list-style:decimal}li>ol,li>ul{margin-bottom:0;margin-left:1.5em}object{max-width:100%}img{display:block;height:auto;max-width:100%}table{margin:0 0 1.5em;width:100%}a{color:#4169e1;text-decoration:none}a:visited{color:purple}a:hover{text-decoration:underline}a:active,a:focus,a:hover{color:#191970}a:focus{outline:#0f161a dotted 2px}a:active,a:hover{outline:0}button,input[type=button],input[type=submit]{border:1px solid;border-color:#ccc #ccc #bbb;border-radius:3px;background:#e6e6e6;color:rgba(0,0,0,.8);line-height:1;padding:.6em 1em .4em}button:hover,input[type=button]:hover,input[type=submit]:hover{border-color:#ccc #bbb #aaa}button:active,button:focus,input[type=button]:active,input[type=button]:focus,input[type=submit]:active,input[type=submit]:focus{border-color:#aaa #bbb #bbb}input[type=email],input[type=number],input[type=search],input[type=text],input[type=url],textarea{color:#666;border:1px solid #ccc;border-radius:3px;padding:3px}input[type=search]{padding:3px 10px}input[type=email]:focus,input[type=number]:focus,input[type=search]:focus,input[type=text]:focus,input[type=url]:focus,textarea:focus{color:#111}select{border:1px solid #ccc}textarea{width:100%}#primary{display:flex;flex-flow:row wrap;justify-content:space-between;max-width:1180px;margin:50px auto}.site-header{background:#fff;border-bottom:1px solid rgba(38,50,56,.1);display:flex;flex-flow:row wrap;align-items:center;padding:.75rem 3rem}.site-header .site-title{font-size:1.625rem;margin:0}.site-header .site-title a{color:#0f161a}.site-header .close-nav-mobile,.site-header .open-nav-mobile{display:none}.really-first-menu{display:flex;flex-flow:row wrap;margin:0}.really-first-menu .menu-item{list-style:none}.really-first-menu .menu-item:focus-within,.really-first-menu .menu-item:hover{cursor:pointer}.really-first-menu .menu-item a{color:#0f161a;display:block;padding:5px 10px}.really-first-menu .menu-item a:focus,.really-first-menu .menu-item a:hover{color:#191970}.navigation .nav-links .nav-next a,.navigation .nav-links .nav-previous a{background:#fff;border:1px solid rgba(38,50,56,.1);color:#0f161a;display:block;font-size:1.125rem;margin-top:35px;overflow-wrap:break-word;padding:10px 0;position:relative;text-align:center;transition:.3s ease-out}.navigation .nav-links .nav-next a:focus,.navigation .nav-links .nav-next a:hover,.navigation .nav-links .nav-previous a:focus,.navigation .nav-links .nav-previous a:hover{background:#e2e6e9;color:#191970}.navigation .nav-links .nav-previous a::after{content:"\21FE";margin-left:10px}.navigation .nav-links .nav-next a::before{content:"\21FD";margin-right:10px}.entry-site-main{align-self:flex-start;min-width:850px!important;max-width:850px!important}.has-post-thumbnail{border-radius:3px 0 0 3px}.post .entry-media{line-height:0}.single-post .post .entry-header{background:#fff;border:1px solid rgba(38,50,56,.1);border-bottom:none;padding:50px 50px 0;text-align:center}.single-post .has-post-thumbnail .entry-header{padding:50px}.single-post .post .entry-header .entry-title{font-size:2rem;margin-top:0;margin-bottom:20px;overflow-wrap:break-word}.single-post .post .entry-header span,.single-post .post .entry-header time{background:#fff;border:1px solid rgba(38,50,56,.1);font-size:.8125rem;padding:5px 10px}.single-post .post .entry-body .entry-media{border:1px solid rgba(38,50,56,.1)}.single-post .post .entry-body .entry-media .really-single-thumb{width:100%}.single-post .post .entry-body .entry-content,.single-post .post .entry-body .entry-meta{background:#fff;border-left:1px solid rgba(38,50,56,.1);border-right:1px solid rgba(38,50,56,.1);margin:0 auto;padding:50px 50px 25px}.single-post .post .entry-body .entry-content a{text-decoration:underline}.single-post .post .entry-body .entry-content p{word-wrap:break-word}.single-post .post .entry-body .entry-content>p:first-child{margin-top:0}.single-post .post .entry-body .entry-content>p:last-child{margin-bottom:0}.single-post .post .entry-body .entry-meta{border-top:none;border-bottom:1px solid rgba(38,50,56,.1);display:flex;justify-content:space-between;padding:0 50px 50px}.single-post .post .entry-body .entry-meta .entry-category-content,.single-post .post .entry-body .entry-meta .entry-tags-content{flex:1}.single-post .post .entry-body .entry-meta .entry-category-content span{color:#586674}.single-post .post .entry-body .entry-meta .entry-category-content a{text-transform:capitalize}.single-post .post .entry-body .entry-meta .entry-tags-content{color:#586674;margin-left:20px}.single-post .post .entry-body .entry-meta .entry-tags-content a{margin-top:10px;text-transform:lowercase}.widget-area{min-width:300px!important;max-width:300px!important}.widget-area .widget{background:#fff;border:1px solid rgba(38,50,56,.1);padding:20px}.widget-area .widget+.widget{margin-top:10px}.widget-area .widget select{max-width:100%}.widget-area .widget ul{margin:0;padding-left:10px}.widget-area .widget_search form label{flex:1}.widget-area .widget_search form label input{width:100%}.site-footer{background:#fff;border-top:1px solid rgba(38,50,56,.1);border-bottom:1px solid rgba(38,50,56,.1)}.site-info{font-size:.8125rem;color:#586674;max-width:1180px;margin:0 auto;padding:20px 0;text-align:center}.site-info a{color:#586674}.site-info a:focus,.site-info a:hover{color:#191970}.comments-area{margin-top:35px}.comments-area table td,.comments-area table th{border:1px solid}.comments-area .submit{background:#f5f7f8;cursor:pointer;transition:.3s ease-out}.comments-area .submit:hover{background:#e3e6e8}.comments-area .comment-form .comment-form-comment textarea{min-width:850px!important;max-width:850px!important}.entry-body .entry-content ol,.entry-body .entry-content ul{margin-left:0}.entry-body .entry-content table td,.entry-body .entry-content table th{border:1px solid}@media only screen and (min-width:821px) and (max-width:1200px){.entry-site-main{min-width:800px!important;max-width:800px!important}}@media only screen and (max-width:1200px){#primary{max-width:800px}.site-header{flex-flow:column nowrap}.site-header .site-title{margin:0 auto 10px}.comments-area .comment-form .comment-form-comment textarea{min-width:800px!important;max-width:800px!important}.widget-area{margin-top:35px;min-width:100%!important;max-width:100%!important}.widget-area .widget+.widget{margin-top:35px}}@media only screen and (max-width:899px){.site-header{max-width:100%!important;padding:.75rem 1rem}.site-header .close-nav-mobile,.site-header .open-nav-mobile{display:initial}.site-header .open-nav-mobile{color:#0f161a;text-transform:uppercase}.site-header .open-nav-mobile::before{content:"";display:inline-block;background:#0f161a;box-shadow:0 -5px 0 0 currentColor,0 -10px 0 0 currentColor;width:20px;height:2px;margin-right:5px}.site-header .main-navigation{background:#fff;box-shadow:0 3px 5px 2px rgba(38,50,56,.1);display:none;position:absolute;left:0;top:99px;width:100%!important;z-index:2000}.site-header .main-navigation:target{display:flex;flex-flow:column nowrap}.main-navigation .close-nav-mobile{background:#0f161a;color:#fff;order:-1;padding:20px;transition:.2s ease-out}.main-navigation .close-nav-mobile:focus,.main-navigation .close-nav-mobile:hover{background:rgba(38,50,56,.1);color:#0f161a}.really-first-menu{flex-flow:column nowrap;padding:20px 70px}.really-first-menu .menu-item{margin:0}.really-first-menu .menu-item{list-style:circle}.really-first-menu .menu-item a{padding:10px;text-decoration:none;word-wrap:break-word}.really-first-menu .menu-item a:hover{background:rgba(38,50,56,.1);text-decoration:none}.really-first-menu .menu-item+.menu-item{margin-left:0;margin-top:10px}}@media only screen and (max-width:820px){#primary{max-width:300px}.navigation .nav-links .nav-next a,.navigation .nav-links .nav-previous a{padding:10px}.entry-site-main{min-width:300px!important;max-width:300px!important}.single-post .post .entry-header{padding:20px 20px 0;text-align:left}.single-post .has-post-thumbnail .entry-header{padding:20px}.single-post .post .entry-header time{display:block;text-align:center}.single-post .post .entry-header span{display:none}.single-post .post .entry-body .entry-content,.single-post .post .entry-body .entry-meta{padding:20px}.single-post .post .entry-body .entry-meta{flex-direction:column}.single-post .post .entry-body .entry-meta .entry-category-content{margin-bottom:20px}.single-post .post .entry-body .entry-meta .entry-tags-content{margin-left:0}.comments-area .comment-form .comment-form-comment textarea{min-width:300px!important;max-width:300px!important}.comment-list{padding-left:20px}.comment-list,.comment-list ol,.comment-list ul{margin-left:0}}.screen-reader-text{border:0;clip:rect(1px,1px,1px,1px);clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute!important;width:1px;word-wrap:normal!important}.screen-reader-text:focus{background-color:#f1f1f1;border-radius:3px;box-shadow:0 0 2px 2px rgba(0,0,0,.6);clip:auto!important;clip-path:none;color:#21759b;display:block;font-size:.875rem;font-weight:700;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}#primary[tabindex="-1"]:focus{outline:0}.aligncenter{clear:both;display:block;float:none;margin-left:auto;margin-right:auto;margin-bottom:1.5em;text-align:center}.aligncenter,div.aligncenter{display:block;margin:5px auto}a img.aligncenter{display:block;margin-left:auto;margin-right:auto}div.heateor_sss_sharing_ul a:focus,div.heateor_sss_sharing_ul a:link{text-decoration:none;background:0 0!important}.heateor_sss_sharing_container img{cursor:pointer;margin:2px;border:none}#heateor_sss_sharing_more_providers{position:fixed;top:50%;left:47%;background:#fafafa;width:650px;margin:-180px 0 0 -300px;z-index:10000000;text-shadow:none!important;height:308px}#heateor_sss_mastodon_popup_bg,#heateor_sss_popup_bg{background:url(https://gozzipz.online/wp-content/plugins/sassy-social-share/images/transparent_bg.png);bottom:0;display:block;left:0;position:fixed;right:0;top:0;z-index:10000}#heateor_sss_sharing_more_providers .title{font-size:14px!important;height:auto!important;background:#58b8f8!important;border-bottom:1px solid #d7d7d7!important;color:#fff;font-weight:700;letter-spacing:inherit;line-height:34px!important;padding:0!important;text-align:center;text-transform:none;margin:0!important;text-shadow:none!important;width:100%}#heateor_sss_sharing_more_providers *{font-family:Arial,Helvetica,sans-serif}#heateor_sss_sharing_more_providers #heateor_sss_sharing_more_content{background:#fafafa;border-radius:4px;color:#555;height:auto;width:100%}#heateor_sss_sharing_more_providers .filter{margin:0;padding:10px 0 0;position:relative;width:100%}#heateor_sss_sharing_more_providers .all-services{clear:both;height:250px;overflow:auto}#heateor_sss_sharing_more_content .all-services ul{margin:10px!important;overflow:hidden;list-style:none;padding-left:0!important;position:static!important;width:auto!important}#heateor_sss_sharing_more_content .all-services ul li{margin:0;background:0 0!important;float:left;width:33.3333%!important;text-align:left!important}#heateor_sss_sharing_more_providers .close-button img{margin:0}#heateor_sss_sharing_more_providers .close-button.separated{background:0 0!important;border:none!important;box-shadow:none!important;width:auto!important;height:auto!important;z-index:1000}#heateor_sss_sharing_more_providers .close-button{height:auto!important;width:auto!important;left:auto!important;display:block!important;color:#555!important;cursor:pointer!important;font-size:29px!important;line-height:29px!important;margin:0!important;padding:0!important;position:absolute;right:-13px;top:-11px}#heateor_sss_sharing_more_providers .filter input.search{width:94%;display:block;float:none;font-family:"open sans","helvetica neue",helvetica,arial,sans-serif;font-weight:300;height:auto;line-height:inherit;margin:0 auto;padding:5px 8px 5px 10px;border:1px solid #ccc!important;color:#000;background:#fff!important;font-size:16px!important;text-align:left!important}#heateor_sss_sharing_more_providers .footer-panel{background:#fff;border-top:1px solid #d7d7d7;padding:6px 0;width:100%;color:#fff}#heateor_sss_sharing_more_providers .footer-panel p{background-color:transparent;top:0;text-align:left!important;color:#000;font-family:'helvetica neue',arial,helvetica,sans-serif;font-size:12px;line-height:1.2;margin:0!important;padding:0 6px!important;text-indent:0!important}#heateor_sss_sharing_more_providers .footer-panel a{color:#fff;text-decoration:none;font-weight:700;text-indent:0!important}#heateor_sss_sharing_more_providers .all-services ul li a span{width:51%}#heateor_sss_sharing_more_providers .all-services ul li a{border-radius:3px;color:#666!important;display:block;font-size:18px;height:auto;line-height:28px;overflow:hidden;padding:8px;text-decoration:none!important;text-overflow:ellipsis;white-space:nowrap;border:none!important;text-indent:0!important;background:0 0!important;text-shadow:none}.heateor_sss_vertical_sharing{-webkit-box-sizing:content-box!important;-moz-box-sizing:content-box!important}div.heateor_sss_sharing_ul{padding-left:0!important;margin:1px 0!important}#heateor_sss_mastodon_popup_close img,#heateor_sss_sharing_popup_close img{opacity:1!important;background:0 0!important;border:none!important;outline:0!important;box-shadow:none!important;width:auto!important;height:auto!important;top:inherit!important;right:inherit!important;left:9px!important;padding:0!important}div.heateor_sss_horizontal_sharing div.heateor_sss_sharing_ul a{float:left;padding:0!important;list-style:none!important;border:none!important;margin:2px}div.heateor_sss_sharing_ul a:before{content:none!important}.heateor_sss_vertical_sharing{background:0 0;-webkit-box-shadow:0 1px 4px 1px rgba(0,0,0,.1);box-shadow:0 1px 4px 1px rgba(0,0,0,.1);position:fixed;overflow:visible;z-index:10000000;display:block;padding:10px;border-radius:4px;opacity:1;box-sizing:content-box!important}.heateorSssTCBackground:hover{border-width:0!important;background-color:transparent}.heateorSssTCBackground{border-width:0!important;background-color:transparent!important;font-style:normal;word-wrap:normal;color:#666;line-height:1;visibility:hidden}.heateorSssSharingSvg{width:100%;height:100%}.heateorSssSharingArrow{height:16px;width:16px;cursor:pointer;margin-top:10px}.heateorSssPushIn{background:url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22100%25%22%20height%3D%22100%25%22%20viewBox%3D%220%200%2030%2030%22%3E%0A%3Cpath%20d%3D%22M%207%206%20q%202%206%2010%206%20v%20-6%20l%206%209%20l%20-6%209%20v%20-6%20q%20-10%202%20-10%20-12%22%20stroke-width%3D%221%22%20stroke%3D%22%23000%22%20fill%3D%22%23000%22%20stroke-linecap%3D%22round%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E) left no-repeat}.heateorSssPullOut{background:url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22100%25%22%20height%3D%22100%25%22%20viewBox%3D%220%200%2030%2030%22%3E%0A%3Cpath%20d%3D%22M%2023%206%20q%20-2%206%20-10%206%20v%20-6%20l%20-6%209%20l%206%209%20v%20-6%20q%2010%202%2010%20-12%22%20stroke-width%3D%221%22%20stroke%3D%22%23000%22%20fill%3D%22%23000%22%20stroke-linecap%3D%22round%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E) left no-repeat}div.heateorSssTotalShareCount{word-wrap:normal!important;font-weight:bolder;font-family:sans-serif;padding:0;margin:0;text-align:center}div.heateorSssTotalShareText{word-wrap:normal!important;margin:0;padding:0;text-align:center}div.heateor_sss_horizontal_sharing li{width:auto}.heateor_sss_sharing_container a{padding:0!important;box-shadow:none!important;border:none!important}.heateorSssClear{clear:both}@media screen and (max-width:783px){#heateor_sss_sharing_more_providers{width:80%;left:60%;margin-left:-50%;text-shadow:none!important}#heateor_sss_sharing_more_providers .filter input.search{border:1px solid #ccc;width:92%}}@media screen and (max-width:475px){#heateor_sss_sharing_more_content .all-services ul li{width:100%!important}}div.heateor_sss_bottom_sharing{margin-bottom:0}div.heateor_sss_sharing_container a:before{content:none}.heateor_sss_mastodon_popup_button{background:linear-gradient(#ec1b23,#d43116);padding:8px 0 10px;font-size:18px;border:0;color:#fff;border-radius:8px;margin:4px auto;font-weight:bolder;width:35%;cursor:pointer;border-bottom-style:groove;border-bottom-width:5px;border-bottom-color:rgba(0,0,0,.2)}</style>
+<meta name="description" content="All in all, the ICC World Cup 2023 schedule promises to be a thrilling event that cricket enthusiasts won&#039;t want to miss, as teams from around the world"/>
+<meta name="robots" content="index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/>
+<link rel="canonical" href="https://gozzipz.online/2023/03/31/icc-world-cup-2023-schedule/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="ICC World Cup 2023 Schedule is Finally Here! Get Ready to Roar - Gossips World" />
+<meta property="og:description" content="All in all, the ICC World Cup 2023 schedule promises to be a thrilling event that cricket enthusiasts won&#039;t want to miss, as teams from around the world" />
+<meta property="og:url" content="https://gozzipz.online/2023/03/31/icc-world-cup-2023-schedule/" />
+<meta property="og:site_name" content="Gossips around world" />
+<meta property="article:tag" content="Cricket world cup 2023" />
+<meta property="article:tag" content="ICC World Cup 2023 Schedule" />
+<meta property="article:section" content="Around the Web" />
+<meta property="og:updated_time" content="2023-03-31T19:36:04+00:00" />
+<meta property="og:image" content="https://gozzipz.online/wp-content/uploads/2023/03/Screenshot-from-2023-04-01-00-08-23.png" />
+<meta property="og:image:secure_url" content="https://gozzipz.online/wp-content/uploads/2023/03/Screenshot-from-2023-04-01-00-08-23.png" />
+<meta property="og:image:width" content="705" />
+<meta property="og:image:height" content="464" />
+<meta property="og:image:alt" content="ICC world cup 2023 Schedule" />
+<meta property="og:image:type" content="image/png" />
+<meta property="article:published_time" content="2023-03-31T19:15:32+00:00" />
+<meta property="article:modified_time" content="2023-03-31T19:36:04+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="ICC World Cup 2023 Schedule is Finally Here! Get Ready to Roar - Gossips World" />
+<meta name="twitter:description" content="All in all, the ICC World Cup 2023 schedule promises to be a thrilling event that cricket enthusiasts won&#039;t want to miss, as teams from around the world" />
+<meta name="twitter:image" content="https://gozzipz.online/wp-content/uploads/2023/03/Screenshot-from-2023-04-01-00-08-23.png" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="admin" />
+<meta name="twitter:label2" content="Time to read" />
+<meta name="twitter:data2" content="2 minutes" />
+<script type="application/ld+json" class="rank-math-schema">{"@context":"https://schema.org","@graph":[{"@type":["Person","Organization"],"@id":"https://gozzipz.online/#person","name":"admin"},{"@type":"WebSite","@id":"https://gozzipz.online/#website","url":"https://gozzipz.online","name":"Gossips around world","publisher":{"@id":"https://gozzipz.online/#person"},"inLanguage":"en-US"},{"@type":"ImageObject","@id":"https://gozzipz.online/wp-content/uploads/2023/03/Screenshot-from-2023-04-01-00-08-23.png","url":"https://gozzipz.online/wp-content/uploads/2023/03/Screenshot-from-2023-04-01-00-08-23.png","width":"705","height":"464","caption":"ICC world cup 2023 Schedule","inLanguage":"en-US"},{"@type":"WebPage","@id":"https://gozzipz.online/2023/03/31/icc-world-cup-2023-schedule/#webpage","url":"https://gozzipz.online/2023/03/31/icc-world-cup-2023-schedule/","name":"ICC World Cup 2023 Schedule is Finally Here! Get Ready to Roar - Gossips World","datePublished":"2023-03-31T19:15:32+00:00","dateModified":"2023-03-31T19:36:04+00:00","isPartOf":{"@id":"https://gozzipz.online/#website"},"primaryImageOfPage":{"@id":"https://gozzipz.online/wp-content/uploads/2023/03/Screenshot-from-2023-04-01-00-08-23.png"},"inLanguage":"en-US"},{"@type":"Person","@id":"https://gozzipz.online/author/admin/","name":"admin","url":"https://gozzipz.online/author/admin/","image":{"@type":"ImageObject","@id":"https://secure.gravatar.com/avatar/a12aafe15abafd1088f2878b8caa1502?s=96&amp;d=mm&amp;r=g","url":"https://secure.gravatar.com/avatar/a12aafe15abafd1088f2878b8caa1502?s=96&amp;d=mm&amp;r=g","caption":"admin","inLanguage":"en-US"},"sameAs":["https://gozzipz.online"]},{"@type":"BlogPosting","headline":"ICC World Cup 2023 Schedule is Finally Here! Get Ready to Roar - Gossips World","keywords":"ICC World Cup 2023 Schedule,World Cup 2023,ICC","datePublished":"2023-03-31T19:15:32+00:00","dateModified":"2023-03-31T19:36:04+00:00","articleSection":"Around the Web","author":{"@id":"https://gozzipz.online/author/admin/","name":"admin"},"publisher":{"@id":"https://gozzipz.online/#person"},"description":"All in all, the ICC World Cup 2023 schedule promises to be a thrilling event that cricket enthusiasts won&#039;t want to miss, as teams from around the world","name":"ICC World Cup 2023 Schedule is Finally Here! Get Ready to Roar - Gossips World","@id":"https://gozzipz.online/2023/03/31/icc-world-cup-2023-schedule/#richSnippet","isPartOf":{"@id":"https://gozzipz.online/2023/03/31/icc-world-cup-2023-schedule/#webpage"},"image":{"@id":"https://gozzipz.online/wp-content/uploads/2023/03/Screenshot-from-2023-04-01-00-08-23.png"},"inLanguage":"en-US","mainEntityOfPage":{"@id":"https://gozzipz.online/2023/03/31/icc-world-cup-2023-schedule/#webpage"}}]}</script>
+<!-- /Rank Math WordPress SEO plugin -->
+
+
+<link rel="alternate" type="application/rss+xml" title="Gossips World &raquo; Feed" href="https://gozzipz.online/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Gossips World &raquo; Comments Feed" href="https://gozzipz.online/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Gossips World &raquo; ICC World Cup 2023 Schedule is Finally Here! Get Ready to Roar Comments Feed" href="https://gozzipz.online/2023/03/31/icc-world-cup-2023-schedule/feed/" />
+		<!-- This site uses the Google Analytics by MonsterInsights plugin v8.14.1 - Using Analytics tracking - https://www.monsterinsights.com/ -->
+							<script type="rocketlazyloadscript" data-rocket-src="//www.googletagmanager.com/gtag/js?id=G-225Q6E65FM"  data-cfasync="false" data-wpfc-render="false" async></script>
+			<script type="rocketlazyloadscript" data-cfasync="false" data-wpfc-render="false">
+				var mi_version = '8.14.1';
+				var mi_track_user = true;
+				var mi_no_track_reason = '';
+				
+								var disableStrs = [
+										'ga-disable-G-225Q6E65FM',
+														];
+
+				/* Function to detect opted out users */
+				function __gtagTrackerIsOptedOut() {
+					for (var index = 0; index < disableStrs.length; index++) {
+						if (document.cookie.indexOf(disableStrs[index] + '=true') > -1) {
+							return true;
+						}
+					}
+
+					return false;
+				}
+
+				/* Disable tracking if the opt-out cookie exists. */
+				if (__gtagTrackerIsOptedOut()) {
+					for (var index = 0; index < disableStrs.length; index++) {
+						window[disableStrs[index]] = true;
+					}
+				}
+
+				/* Opt-out function */
+				function __gtagTrackerOptout() {
+					for (var index = 0; index < disableStrs.length; index++) {
+						document.cookie = disableStrs[index] + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+						window[disableStrs[index]] = true;
+					}
+				}
+
+				if ('undefined' === typeof gaOptout) {
+					function gaOptout() {
+						__gtagTrackerOptout();
+					}
+				}
+								window.dataLayer = window.dataLayer || [];
+
+				window.MonsterInsightsDualTracker = {
+					helpers: {},
+					trackers: {},
+				};
+				if (mi_track_user) {
+					function __gtagDataLayer() {
+						dataLayer.push(arguments);
+					}
+
+					function __gtagTracker(type, name, parameters) {
+						if (!parameters) {
+							parameters = {};
+						}
+
+						if (parameters.send_to) {
+							__gtagDataLayer.apply(null, arguments);
+							return;
+						}
+
+						if (type === 'event') {
+														parameters.send_to = monsterinsights_frontend.v4_id;
+							var hookName = name;
+							if (typeof parameters['event_category'] !== 'undefined') {
+								hookName = parameters['event_category'] + ':' + name;
+							}
+
+							if (typeof MonsterInsightsDualTracker.trackers[hookName] !== 'undefined') {
+								MonsterInsightsDualTracker.trackers[hookName](parameters);
+							} else {
+								__gtagDataLayer('event', name, parameters);
+							}
+							
+													} else {
+							__gtagDataLayer.apply(null, arguments);
+						}
+					}
+
+					__gtagTracker('js', new Date());
+					__gtagTracker('set', {
+						'developer_id.dZGIzZG': true,
+											});
+										__gtagTracker('config', 'G-225Q6E65FM', {"forceSSL":"true","link_attribution":"true"} );
+															window.gtag = __gtagTracker;										(function () {
+						/* https://developers.google.com/analytics/devguides/collection/analyticsjs/ */
+						/* ga and __gaTracker compatibility shim. */
+						var noopfn = function () {
+							return null;
+						};
+						var newtracker = function () {
+							return new Tracker();
+						};
+						var Tracker = function () {
+							return null;
+						};
+						var p = Tracker.prototype;
+						p.get = noopfn;
+						p.set = noopfn;
+						p.send = function () {
+							var args = Array.prototype.slice.call(arguments);
+							args.unshift('send');
+							__gaTracker.apply(null, args);
+						};
+						var __gaTracker = function () {
+							var len = arguments.length;
+							if (len === 0) {
+								return;
+							}
+							var f = arguments[len - 1];
+							if (typeof f !== 'object' || f === null || typeof f.hitCallback !== 'function') {
+								if ('send' === arguments[0]) {
+									var hitConverted, hitObject = false, action;
+									if ('event' === arguments[1]) {
+										if ('undefined' !== typeof arguments[3]) {
+											hitObject = {
+												'eventAction': arguments[3],
+												'eventCategory': arguments[2],
+												'eventLabel': arguments[4],
+												'value': arguments[5] ? arguments[5] : 1,
+											}
+										}
+									}
+									if ('pageview' === arguments[1]) {
+										if ('undefined' !== typeof arguments[2]) {
+											hitObject = {
+												'eventAction': 'page_view',
+												'page_path': arguments[2],
+											}
+										}
+									}
+									if (typeof arguments[2] === 'object') {
+										hitObject = arguments[2];
+									}
+									if (typeof arguments[5] === 'object') {
+										Object.assign(hitObject, arguments[5]);
+									}
+									if ('undefined' !== typeof arguments[1].hitType) {
+										hitObject = arguments[1];
+										if ('pageview' === hitObject.hitType) {
+											hitObject.eventAction = 'page_view';
+										}
+									}
+									if (hitObject) {
+										action = 'timing' === arguments[1].hitType ? 'timing_complete' : hitObject.eventAction;
+										hitConverted = mapArgs(hitObject);
+										__gtagTracker('event', action, hitConverted);
+									}
+								}
+								return;
+							}
+
+							function mapArgs(args) {
+								var arg, hit = {};
+								var gaMap = {
+									'eventCategory': 'event_category',
+									'eventAction': 'event_action',
+									'eventLabel': 'event_label',
+									'eventValue': 'event_value',
+									'nonInteraction': 'non_interaction',
+									'timingCategory': 'event_category',
+									'timingVar': 'name',
+									'timingValue': 'value',
+									'timingLabel': 'event_label',
+									'page': 'page_path',
+									'location': 'page_location',
+									'title': 'page_title',
+								};
+								for (arg in args) {
+																		if (!(!args.hasOwnProperty(arg) || !gaMap.hasOwnProperty(arg))) {
+										hit[gaMap[arg]] = args[arg];
+									} else {
+										hit[arg] = args[arg];
+									}
+								}
+								return hit;
+							}
+
+							try {
+								f.hitCallback();
+							} catch (ex) {
+							}
+						};
+						__gaTracker.create = newtracker;
+						__gaTracker.getByName = newtracker;
+						__gaTracker.getAll = function () {
+							return [];
+						};
+						__gaTracker.remove = noopfn;
+						__gaTracker.loaded = true;
+						window['__gaTracker'] = __gaTracker;
+					})();
+									} else {
+										console.log("");
+					(function () {
+						function __gtagTracker() {
+							return null;
+						}
+
+						window['__gtagTracker'] = __gtagTracker;
+						window['gtag'] = __gtagTracker;
+					})();
+									}
+			</script>
+				<!-- / Google Analytics by MonsterInsights -->
+		<style></style>
+	
+
+<style id='global-styles-inline-css'></style>
+
+<style id='ez-toc-inline-css'></style>
+
+
+
+
+<script type="rocketlazyloadscript" data-rocket-src='https://gozzipz.online/wp-content/plugins/google-analytics-for-wordpress/assets/js/frontend-gtag.min.js?ver=8.14.1' id='monsterinsights-frontend-script-js' defer></script>
+<script data-cfasync="false" data-wpfc-render="false" id='monsterinsights-frontend-script-js-extra'>var monsterinsights_frontend = {"js_events_tracking":"true","download_extensions":"doc,pdf,ppt,zip,xls,docx,pptx,xlsx","inbound_paths":"[{\"path\":\"\\\/go\\\/\",\"label\":\"affiliate\"},{\"path\":\"\\\/recommend\\\/\",\"label\":\"affiliate\"}]","home_url":"https:\/\/gozzipz.online","hash_tracking":"false","ua":"","v4_id":"G-225Q6E65FM"};</script>
+<script type="rocketlazyloadscript" data-rocket-src='https://gozzipz.online/wp-includes/js/jquery/jquery.min.js?ver=3.6.3' id='jquery-core-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-src='https://gozzipz.online/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0' id='jquery-migrate-js' defer></script>
+<script type="rocketlazyloadscript" id='ez-toc-scroll-scriptjs-js-after'>window.addEventListener('DOMContentLoaded', function() {
+jQuery(document).ready(function(){document.querySelectorAll(".ez-toc-section").forEach(t=>{t.setAttribute("ez-toc-data-id","#"+decodeURI(t.getAttribute("id")))}),jQuery("a.ez-toc-link").click(function(){let t=jQuery(this).attr("href"),e=jQuery("#wpadminbar"),i=0;30>30&&(i=30),e.length&&(i+=e.height()),jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').length>0&&(i=jQuery('[ez-toc-data-id="'+decodeURI(t)+'"]').offset().top-i),jQuery("html, body").animate({scrollTop:i},500)})});
+});</script>
+<link rel="https://api.w.org/" href="https://gozzipz.online/wp-json/" /><link rel="alternate" type="application/json" href="https://gozzipz.online/wp-json/wp/v2/posts/167" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://gozzipz.online/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://gozzipz.online/wp-includes/wlwmanifest.xml" />
+<meta name="generator" content="WordPress 6.2" />
+<link rel='shortlink' href='https://gozzipz.online/?p=167' />
+<link rel="alternate" type="application/json+oembed" href="https://gozzipz.online/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fgozzipz.online%2F2023%2F03%2F31%2Ficc-world-cup-2023-schedule%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://gozzipz.online/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fgozzipz.online%2F2023%2F03%2F31%2Ficc-world-cup-2023-schedule%2F&#038;format=xml" />
+<meta name="generator" content="Elementor 3.12.2; features: e_dom_optimization, e_optimized_assets_loading, e_optimized_css_loading, a11y_improvements, additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-swap">
+<link rel="icon" href="https://gozzipz.online/wp-content/uploads/2023/03/cropped-G-1-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://gozzipz.online/wp-content/uploads/2023/03/cropped-G-1-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://gozzipz.online/wp-content/uploads/2023/03/cropped-G-1-180x180.png" />
+<meta name="msapplication-TileImage" content="https://gozzipz.online/wp-content/uploads/2023/03/cropped-G-1-270x270.png" />
+
+  </head>
+
+  <body class="post-template-default single single-post postid-167 single-format-standard elementor-default elementor-kit-287">
+
+    <a class="screen-reader-text skip-link" href="#main">Skip to content</a><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-dark-grayscale"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 0.49803921568627" /><feFuncG type="table" tableValues="0 0.49803921568627" /><feFuncB type="table" tableValues="0 0.49803921568627" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-grayscale"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 1" /><feFuncG type="table" tableValues="0 1" /><feFuncB type="table" tableValues="0 1" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-purple-yellow"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.54901960784314 0.98823529411765" /><feFuncG type="table" tableValues="0 1" /><feFuncB type="table" tableValues="0.71764705882353 0.25490196078431" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-blue-red"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 1" /><feFuncG type="table" tableValues="0 0.27843137254902" /><feFuncB type="table" tableValues="0.5921568627451 0.27843137254902" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-midnight"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 0" /><feFuncG type="table" tableValues="0 0.64705882352941" /><feFuncB type="table" tableValues="0 1" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-magenta-yellow"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.78039215686275 1" /><feFuncG type="table" tableValues="0 0.94901960784314" /><feFuncB type="table" tableValues="0.35294117647059 0.47058823529412" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-purple-green"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.65098039215686 0.40392156862745" /><feFuncG type="table" tableValues="0 1" /><feFuncB type="table" tableValues="0.44705882352941 0.4" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-blue-orange"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.098039215686275 1" /><feFuncG type="table" tableValues="0 0.66274509803922" /><feFuncB type="table" tableValues="0.84705882352941 0.41960784313725" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg>
+    <header id="masthead" class="site-header">
+
+              <h1 class="site-title">
+          <a href="https://gozzipz.online/" rel="home">
+            Gossips World          </a>
+        </h1>
+      <!-- .site-title -->
+
+      <!-- .site-branding -->
+
+              <nav id="site-navigation" class="main-navigation">
+          <ul id="menu-menu" class="really-first-menu"><li id="menu-item-135" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-135"><a href="https://gozzipz.online/">Gozzipz</a></li>
+<li id="menu-item-136" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-136"><a href="https://gozzipz.online/about-us/">About us</a></li>
+<li id="menu-item-161" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-161"><a href="https://gozzipz.online/category/around-th-web/">Around the Web</a></li>
+<li id="menu-item-128" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-128"><a href="https://gozzipz.online/category/news/">News</a></li>
+<li id="menu-item-133" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-133"><a href="https://gozzipz.online/category/entertainment/">Entertainment</a></li>
+<li id="menu-item-129" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-129"><a href="https://gozzipz.online/category/self-help/">Self-help</a></li>
+<li id="menu-item-313" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-313"><a rel="privacy-policy" href="https://gozzipz.online/privacy-policy/">Privacy Policy</a></li>
+<li id="menu-item-418" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-418"><a href="https://gozzipz.online/disclaimer/">Disclaimer</a></li>
+<li id="menu-item-429" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-429"><a href="https://gozzipz.online/contact/">Contact</a></li>
+</ul>          <a href="#" class="close-nav-mobile">
+            &times; Close Menu          </a><!-- .close-nav-mobile -->
+        </nav>
+      <!-- #site-navigation -->
+
+      <a href="#site-navigation" class="open-nav-mobile">
+        Open Menu      </a><!-- .open-nav-mobile -->
+   
+    </header><!-- #masthead -->
+
+    <div id="primary" class="content-area">
+      <main id="main" class="entry-site-main">
+       
+			
+<article id="post-167" class="post-167 post type-post status-publish format-standard has-post-thumbnail hentry category-around-th-web tag-cricket-world-cup-2023 tag-icc-world-cup-2023-schedule">
+  
+  <header class="entry-header">
+    <h1 class="entry-title">ICC World Cup 2023 Schedule is Finally Here! Get Ready to Roar</h1><!-- .entry-title -->
+    <time>March 31, 2023</time>    <span>
+      Author:  <a href="https://gozzipz.online/author/admin/" title="Posts by admin" rel="author">admin</a>    </span>
+  </header><!-- .entry-header -->
+
+  <div class="entry-body">
+
+          <div class="entry-media" aria-hidden="true" tabindex="-1">
+        <img width="705" height="464" src="https://gozzipz.online/wp-content/uploads/2023/03/Screenshot-from-2023-04-01-00-08-23.png" class="really-single-thumb wp-post-image" alt="ICC world cup 2023 Schedule" decoding="async" srcset="https://gozzipz.online/wp-content/uploads/2023/03/Screenshot-from-2023-04-01-00-08-23.png 705w, https://gozzipz.online/wp-content/uploads/2023/03/Screenshot-from-2023-04-01-00-08-23-300x197.png 300w" sizes="(max-width: 705px) 100vw, 705px" />      </div>
+    <!-- .entry-media -->
+
+    <div class="entry-content">
+      <div class='heateorSssClear'></div><div  class='heateor_sss_sharing_container heateor_sss_horizontal_sharing' data-heateor-sss-href='https://gozzipz.online/2023/03/31/icc-world-cup-2023-schedule/'><div class='heateor_sss_sharing_title' style="font-weight:bold" >Share</div><div class="heateor_sss_sharing_ul"><a class="heateor_sss_facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fgozzipz.online%2F2023%2F03%2F31%2Ficc-world-cup-2023-schedule%2F" title="Facebook" rel="nofollow noopener" target="_blank" style="font-size:32px!important;box-shadow:none;display:inline-block;vertical-align:middle"><span class="heateor_sss_svg" style="background-color:#3c589a;width:35px;height:35px;border-radius:999px;display:inline-block;opacity:1;float:left;font-size:32px;box-shadow:none;display:inline-block;font-size:16px;padding:0 4px;vertical-align:middle;background-repeat:repeat;overflow:hidden;padding:0;cursor:pointer;box-sizing:content-box"><svg style="display:block;border-radius:999px;" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="-5 -5 42 42"><path d="M17.78 27.5V17.008h3.522l.527-4.09h-4.05v-2.61c0-1.182.33-1.99 2.023-1.99h2.166V4.66c-.375-.05-1.66-.16-3.155-.16-3.123 0-5.26 1.905-5.26 5.405v3.016h-3.53v4.09h3.53V27.5h4.223z" fill="#fff"></path></svg></span></a><a class="heateor_sss_button_twitter" href="http://twitter.com/intent/tweet?text=ICC%20World%20Cup%202023%20Schedule%20is%20Finally%20Here%21%20Get%20Ready%20to%20Roar&url=https%3A%2F%2Fgozzipz.online%2F2023%2F03%2F31%2Ficc-world-cup-2023-schedule%2F" title="Twitter" rel="nofollow noopener" target="_blank" style="font-size:32px!important;box-shadow:none;display:inline-block;vertical-align:middle"><span class="heateor_sss_svg heateor_sss_s__default heateor_sss_s_twitter" style="background-color:#55acee;width:35px;height:35px;border-radius:999px;display:inline-block;opacity:1;float:left;font-size:32px;box-shadow:none;display:inline-block;font-size:16px;padding:0 4px;vertical-align:middle;background-repeat:repeat;overflow:hidden;padding:0;cursor:pointer;box-sizing:content-box"><svg style="display:block;border-radius:999px;" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="-4 -4 39 39"><path d="M28 8.557a9.913 9.913 0 0 1-2.828.775 4.93 4.93 0 0 0 2.166-2.725 9.738 9.738 0 0 1-3.13 1.194 4.92 4.92 0 0 0-3.593-1.55 4.924 4.924 0 0 0-4.794 6.049c-4.09-.21-7.72-2.17-10.15-5.15a4.942 4.942 0 0 0-.665 2.477c0 1.71.87 3.214 2.19 4.1a4.968 4.968 0 0 1-2.23-.616v.06c0 2.39 1.7 4.38 3.952 4.83-.414.115-.85.174-1.297.174-.318 0-.626-.03-.928-.086a4.935 4.935 0 0 0 4.6 3.42 9.893 9.893 0 0 1-6.114 2.107c-.398 0-.79-.023-1.175-.068a13.953 13.953 0 0 0 7.55 2.213c9.056 0 14.01-7.507 14.01-14.013 0-.213-.005-.426-.015-.637.96-.695 1.795-1.56 2.455-2.55z" fill="#fff"></path></svg></span></a><a class="heateor_sss_button_reddit" href="http://reddit.com/submit?url=https%3A%2F%2Fgozzipz.online%2F2023%2F03%2F31%2Ficc-world-cup-2023-schedule%2F&title=ICC%20World%20Cup%202023%20Schedule%20is%20Finally%20Here%21%20Get%20Ready%20to%20Roar" title="Reddit" rel="nofollow noopener" target="_blank" style="font-size:32px!important;box-shadow:none;display:inline-block;vertical-align:middle"><span class="heateor_sss_svg heateor_sss_s__default heateor_sss_s_reddit" style="background-color:#ff5700;width:35px;height:35px;border-radius:999px;display:inline-block;opacity:1;float:left;font-size:32px;box-shadow:none;display:inline-block;font-size:16px;padding:0 4px;vertical-align:middle;background-repeat:repeat;overflow:hidden;padding:0;cursor:pointer;box-sizing:content-box"><svg style="display:block;border-radius:999px;" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="-3.5 -3.5 39 39"><path d="M28.543 15.774a2.953 2.953 0 0 0-2.951-2.949 2.882 2.882 0 0 0-1.9.713 14.075 14.075 0 0 0-6.85-2.044l1.38-4.349 3.768.884a2.452 2.452 0 1 0 .24-1.176l-4.274-1a.6.6 0 0 0-.709.4l-1.659 5.224a14.314 14.314 0 0 0-7.316 2.029 2.908 2.908 0 0 0-1.872-.681 2.942 2.942 0 0 0-1.618 5.4 5.109 5.109 0 0 0-.062.765c0 4.158 5.037 7.541 11.229 7.541s11.22-3.383 11.22-7.541a5.2 5.2 0 0 0-.053-.706 2.963 2.963 0 0 0 1.427-2.51zm-18.008 1.88a1.753 1.753 0 0 1 1.73-1.74 1.73 1.73 0 0 1 1.709 1.74 1.709 1.709 0 0 1-1.709 1.711 1.733 1.733 0 0 1-1.73-1.711zm9.565 4.968a5.573 5.573 0 0 1-4.081 1.272h-.032a5.576 5.576 0 0 1-4.087-1.272.6.6 0 0 1 .844-.854 4.5 4.5 0 0 0 3.238.927h.032a4.5 4.5 0 0 0 3.237-.927.6.6 0 1 1 .844.854zm-.331-3.256a1.726 1.726 0 1 1 1.709-1.712 1.717 1.717 0 0 1-1.712 1.712z" fill="#fff"/></svg></span></a><a class="heateor_sss_button_linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fgozzipz.online%2F2023%2F03%2F31%2Ficc-world-cup-2023-schedule%2F&title=ICC%20World%20Cup%202023%20Schedule%20is%20Finally%20Here%21%20Get%20Ready%20to%20Roar" title="Linkedin" rel="nofollow noopener" target="_blank" style="font-size:32px!important;box-shadow:none;display:inline-block;vertical-align:middle"><span class="heateor_sss_svg heateor_sss_s__default heateor_sss_s_linkedin" style="background-color:#0077b5;width:35px;height:35px;border-radius:999px;display:inline-block;opacity:1;float:left;font-size:32px;box-shadow:none;display:inline-block;font-size:16px;padding:0 4px;vertical-align:middle;background-repeat:repeat;overflow:hidden;padding:0;cursor:pointer;box-sizing:content-box"><svg style="display:block;border-radius:999px;" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 32 32"><path d="M6.227 12.61h4.19v13.48h-4.19V12.61zm2.095-6.7a2.43 2.43 0 0 1 0 4.86c-1.344 0-2.428-1.09-2.428-2.43s1.084-2.43 2.428-2.43m4.72 6.7h4.02v1.84h.058c.56-1.058 1.927-2.176 3.965-2.176 4.238 0 5.02 2.792 5.02 6.42v7.395h-4.183v-6.56c0-1.564-.03-3.574-2.178-3.574-2.18 0-2.514 1.7-2.514 3.46v6.668h-4.187V12.61z" fill="#fff"></path></svg></span></a><a class="heateor_sss_button_pinterest" href="https://gozzipz.online/2023/03/31/icc-world-cup-2023-schedule/" onclick="event.preventDefault();javascript:void( (function() {var e=document.createElement('script' );e.setAttribute('type','text/javascript' );e.setAttribute('charset','UTF-8' );e.setAttribute('src','//assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)})());" title="Pinterest" rel="nofollow noopener" style="font-size:32px!important;box-shadow:none;display:inline-block;vertical-align:middle"><span class="heateor_sss_svg heateor_sss_s__default heateor_sss_s_pinterest" style="background-color:#cc2329;width:35px;height:35px;border-radius:999px;display:inline-block;opacity:1;float:left;font-size:32px;box-shadow:none;display:inline-block;font-size:16px;padding:0 4px;vertical-align:middle;background-repeat:repeat;overflow:hidden;padding:0;cursor:pointer;box-sizing:content-box"><svg style="display:block;border-radius:999px;" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="-2 -2 35 35"><path fill="#fff" d="M16.539 4.5c-6.277 0-9.442 4.5-9.442 8.253 0 2.272.86 4.293 2.705 5.046.303.125.574.005.662-.33.061-.231.205-.816.27-1.06.088-.331.053-.447-.191-.736-.532-.627-.873-1.439-.873-2.591 0-3.338 2.498-6.327 6.505-6.327 3.548 0 5.497 2.168 5.497 5.062 0 3.81-1.686 7.025-4.188 7.025-1.382 0-2.416-1.142-2.085-2.545.397-1.674 1.166-3.48 1.166-4.689 0-1.081-.581-1.983-1.782-1.983-1.413 0-2.548 1.462-2.548 3.419 0 1.247.421 2.091.421 2.091l-1.699 7.199c-.505 2.137-.076 4.755-.039 5.019.021.158.223.196.314.077.13-.17 1.813-2.247 2.384-4.324.162-.587.929-3.631.929-3.631.46.876 1.801 1.646 3.227 1.646 4.247 0 7.128-3.871 7.128-9.053.003-3.918-3.317-7.568-8.361-7.568z"/></svg></span></a><a class="heateor_sss_whatsapp" href="https://api.whatsapp.com/send?text=ICC%20World%20Cup%202023%20Schedule%20is%20Finally%20Here%21%20Get%20Ready%20to%20Roar https%3A%2F%2Fgozzipz.online%2F2023%2F03%2F31%2Ficc-world-cup-2023-schedule%2F" title="Whatsapp" rel="nofollow noopener" target="_blank" style="font-size:32px!important;box-shadow:none;display:inline-block;vertical-align:middle"><span class="heateor_sss_svg" style="background-color:#55eb4c;width:35px;height:35px;border-radius:999px;display:inline-block;opacity:1;float:left;font-size:32px;box-shadow:none;display:inline-block;font-size:16px;padding:0 4px;vertical-align:middle;background-repeat:repeat;overflow:hidden;padding:0;cursor:pointer;box-sizing:content-box"><svg style="display:block;border-radius:999px;" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="-6 -5 40 40"><path class="heateor_sss_svg_stroke heateor_sss_no_fill" stroke="#fff" stroke-width="2" fill="none" d="M 11.579798566743314 24.396926207859085 A 10 10 0 1 0 6.808479557110079 20.73576436351046"></path><path d="M 7 19 l -1 6 l 6 -1" class="heateor_sss_no_fill heateor_sss_svg_stroke" stroke="#fff" stroke-width="2" fill="none"></path><path d="M 10 10 q -1 8 8 11 c 5 -1 0 -6 -1 -3 q -4 -3 -5 -5 c 4 -2 -1 -5 -1 -4" fill="#fff"></path></svg></span></a><a class="heateor_sss_button_instagram" href="https://www.instagram.com/" title="Instagram" rel="nofollow noopener" target="_blank" style="font-size:32px!important;box-shadow:none;display:inline-block;vertical-align:middle"><span class="heateor_sss_svg" style="background-color:#53beee;width:35px;height:35px;border-radius:999px;display:inline-block;opacity:1;float:left;font-size:32px;box-shadow:none;display:inline-block;font-size:16px;padding:0 4px;vertical-align:middle;background-repeat:repeat;overflow:hidden;padding:0;cursor:pointer;box-sizing:content-box"><svg style="display:block;border-radius:999px;" version="1.1" viewBox="-10 -10 148 148" width="100%" height="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><g><path d="M86,112H42c-14.336,0-26-11.663-26-26V42c0-14.337,11.664-26,26-26h44c14.337,0,26,11.663,26,26v44 C112,100.337,100.337,112,86,112z M42,24c-9.925,0-18,8.074-18,18v44c0,9.925,8.075,18,18,18h44c9.926,0,18-8.075,18-18V42 c0-9.926-8.074-18-18-18H42z" fill="#fff"></path></g><g><path d="M64,88c-13.234,0-24-10.767-24-24c0-13.234,10.766-24,24-24s24,10.766,24,24C88,77.233,77.234,88,64,88z M64,48c-8.822,0-16,7.178-16,16s7.178,16,16,16c8.822,0,16-7.178,16-16S72.822,48,64,48z" fill="#fff"></path></g><g><circle cx="89.5" cy="38.5" fill="#fff" r="5.5"></circle></g></g></svg></span></a><a class="heateor_sss_more" title="More" rel="nofollow noopener" style="font-size: 32px!important;border:0;box-shadow:none;display:inline-block!important;font-size:16px;padding:0 4px;vertical-align: middle;display:inline;" href="https://gozzipz.online/2023/03/31/icc-world-cup-2023-schedule/" onclick="event.preventDefault()"><span class="heateor_sss_svg" style="background-color:#ee8e2d;width:35px;height:35px;border-radius:999px;display:inline-block!important;opacity:1;float:left;font-size:32px!important;box-shadow:none;display:inline-block;font-size:16px;padding:0 4px;vertical-align:middle;display:inline;background-repeat:repeat;overflow:hidden;padding:0;cursor:pointer;box-sizing:content-box;" onclick="heateorSssMoreSharingPopup(this, 'https://gozzipz.online/2023/03/31/icc-world-cup-2023-schedule/', 'ICC%20World%20Cup%202023%20Schedule%20is%20Finally%20Here%21%20Get%20Ready%20to%20Roar', '' )"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-.3 0 32 32" version="1.1" width="100%" height="100%" style="display:block;border-radius:999px;" xml:space="preserve"><g><path fill="#fff" d="M18 14V8h-4v6H8v4h6v6h4v-6h6v-4h-6z" fill-rule="evenodd"></path></g></svg></span></a></div><div class="heateorSssClear"></div></div><div class='heateorSssClear'></div><p>The eagerly anticipated ICC Cricket World Cup 2023 schedule is set to take place in India, marking the 13th edition of this prestigious tournament. This time, India will host the cup solely, in the 50-over format, providing the perfect platform for teams from different nations to compete for the coveted World Cup trophy.</p>
+<div id="ez-toc-container" class="ez-toc-v2_0_47_1 counter-hierarchy ez-toc-counter ez-toc-grey ez-toc-container-direction">
+<div class="ez-toc-title-container">
+<p class="ez-toc-title">Table of Contents</p>
+<span class="ez-toc-title-toggle"><a href="#" class="ez-toc-pull-right ez-toc-btn ez-toc-btn-xs ez-toc-btn-default ez-toc-toggle" aria-label="ez-toc-toggle-icon-1"><label for="item-6450f9fac0fed" aria-label="Table of Content"><span style="display: flex;align-items: center;width: 35px;height: 30px;justify-content: center;direction:ltr;"><svg style="fill: #999;color:#999" xmlns="http://www.w3.org/2000/svg" class="list-377408" width="20px" height="20px" viewBox="0 0 24 24" fill="none"><path d="M6 6H4v2h2V6zm14 0H8v2h12V6zM4 11h2v2H4v-2zm16 0H8v2h12v-2zM4 16h2v2H4v-2zm16 0H8v2h12v-2z" fill="currentColor"></path></svg><svg style="fill: #999;color:#999" class="arrow-unsorted-368013" xmlns="http://www.w3.org/2000/svg" width="10px" height="10px" viewBox="0 0 24 24" version="1.2" baseProfile="tiny"><path d="M18.2 9.3l-6.2-6.3-6.2 6.3c-.2.2-.3.4-.3.7s.1.5.3.7c.2.2.4.3.7.3h11c.3 0 .5-.1.7-.3.2-.2.3-.5.3-.7s-.1-.5-.3-.7zM5.8 14.7l6.2 6.3 6.2-6.3c.2-.2.3-.5.3-.7s-.1-.5-.3-.7c-.2-.2-.4-.3-.7-.3h-11c-.3 0-.5.1-.7.3-.2.2-.3.5-.3.7s.1.5.3.7z"/></svg></span></label><input  type="checkbox" id="item-6450f9fac0fed"></a></span></div>
+<nav><ul class='ez-toc-list ez-toc-list-level-1 ' ><li class='ez-toc-page-1 ez-toc-heading-level-2'><a class="ez-toc-link ez-toc-heading-1" href="#ICC_World_Cup_2023_scheduled" title="ICC World Cup 2023 scheduled">ICC World Cup 2023 scheduled</a></li><li class='ez-toc-page-1 ez-toc-heading-level-2'><a class="ez-toc-link ez-toc-heading-2" href="#Proposed_Venues_for_ICC_Cricket_World_Cup_2023_in_India" title="Proposed Venues for ICC Cricket World Cup 2023 in India">Proposed Venues for ICC Cricket World Cup 2023 in India</a></li><li class='ez-toc-page-1 ez-toc-heading-level-2'><a class="ez-toc-link ez-toc-heading-3" href="#Qualified_Teams_for_the_ICC_Cricket_World_Cup_2023" title="Qualified Teams for the ICC Cricket World Cup 2023">Qualified Teams for the ICC Cricket World Cup 2023</a></li><li class='ez-toc-page-1 ez-toc-heading-level-2'><a class="ez-toc-link ez-toc-heading-4" href="#ICC_World_Cup_Winners_and_Runner-Up_Until_Now" title="ICC World Cup Winners and Runner-Up Until Now">ICC World Cup Winners and Runner-Up Until Now</a></li></ul></nav></div>
+<h2><span class="ez-toc-section" id="ICC_World_Cup_2023_scheduled"></span>ICC World Cup 2023 scheduled<span class="ez-toc-section-end"></span></h2>
+<p>A total of 10 teams will be participating in this tournament, with the Cricket World Cup 2023 final scheduled for 26th November, which is sure to be an exhilarating day for cricket enthusiasts worldwide.</p>
+<p>In order to qualify for the tournament, the top 8 teams of world cricket will receive an automatic berth, while the remaining 2 teams will have to <a href="https://gozzipz.online/2023/03/24/8-reasons-competition-is-beneficial/">compete</a> in a qualification round. As a result, only the best teams will have the opportunity to participate in this event.</p>
+<p>It&#8217;s worth mentioning that the last time India hosted the World Cup in 2011, they emerged victorious, becoming the first team to win the cup as hosts. England, the current defending champions, will undoubtedly face a tough challenge in defending their title in India, making the tournament even more exciting.</p>
+<p>All in all, the ICC World Cup 2023 schedule promises to be a thrilling event that cricket enthusiasts won&#8217;t want to miss, as teams from around the world battle it out for the ultimate prize in cricket.</p>
+<p><img decoding="async" loading="lazy" class="aligncenter wp-image-168 size-large" src="https://gozzipz.online/wp-content/uploads/2023/03/cricket-worldcup-1024x538.jpg" alt="Icc world cup 2023 schedule" width="1024" height="538" srcset="https://gozzipz.online/wp-content/uploads/2023/03/cricket-worldcup-1024x538.jpg 1024w, https://gozzipz.online/wp-content/uploads/2023/03/cricket-worldcup-300x158.jpg 300w, https://gozzipz.online/wp-content/uploads/2023/03/cricket-worldcup-768x403.jpg 768w, https://gozzipz.online/wp-content/uploads/2023/03/cricket-worldcup.jpg 1200w" sizes="(max-width: 1024px) 100vw, 1024px" /></p>
+<h2><span class="ez-toc-section" id="Proposed_Venues_for_ICC_Cricket_World_Cup_2023_in_India"></span>Proposed Venues for ICC Cricket World Cup 2023 in India<span class="ez-toc-section-end"></span></h2>
+<table>
+<thead>
+<tr>
+<th>Match No.</th>
+<th>Date</th>
+<th>Venue</th>
+<th>City</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>October 27</td>
+<td>Wankhede Stadium</td>
+<td>Mumbai</td>
+</tr>
+<tr>
+<td>2</td>
+<td>October 28</td>
+<td>M. Chinnaswamy Stadium</td>
+<td>Bengaluru</td>
+</tr>
+<tr>
+<td>3</td>
+<td>October 29</td>
+<td>Punjab Cricket Association IS Bindra Stadium</td>
+<td>Mohali</td>
+</tr>
+<tr>
+<td>4</td>
+<td>October 30</td>
+<td>Feroz Shah Kotla</td>
+<td>New Delhi</td>
+</tr>
+<tr>
+<td>5</td>
+<td>October 31</td>
+<td>Rajiv Gandhi International Cricket Stadium</td>
+<td>Hyderabad</td>
+</tr>
+<tr>
+<td>6</td>
+<td>November 1</td>
+<td>Sardar Patel Stadium, Motera</td>
+<td>Ahmedabad</td>
+</tr>
+<tr>
+<td>7</td>
+<td>November 2</td>
+<td>Holkar Cricket Stadium</td>
+<td>Indore</td>
+</tr>
+<tr>
+<td>8</td>
+<td>November 3</td>
+<td>MCA International Stadium</td>
+<td>Pune</td>
+</tr>
+<tr>
+<td>9</td>
+<td>November 4</td>
+<td>Greenfield International Stadium</td>
+<td>Thiruvananthapuram</td>
+</tr>
+<tr>
+<td>10</td>
+<td>November 5</td>
+<td>Eden Gardens</td>
+<td>Kolkata</td>
+</tr>
+<tr>
+<td>11</td>
+<td>November 6</td>
+<td>MA Chidambaram Stadium</td>
+<td>Chennai</td>
+</tr>
+<tr>
+<td>12</td>
+<td>November 7</td>
+<td>Barsapara Cricket Stadium</td>
+<td>Guwahati</td>
+</tr>
+<tr>
+<td>13</td>
+<td>November 8</td>
+<td>JSCA International Stadium Complex</td>
+<td>Ranchi</td>
+</tr>
+<tr>
+<td>14</td>
+<td>November 9</td>
+<td>Vidarbha Cricket Association Stadium</td>
+<td>Nagpur</td>
+</tr>
+<tr>
+<td>15</td>
+<td>November 10</td>
+<td>Arun Jaitley Stadium</td>
+<td>New Delhi</td>
+</tr>
+<tr>
+<td>16</td>
+<td>November 11</td>
+<td>Himachal Pradesh Cricket Association Stadium</td>
+<td>Dharamsala</td>
+</tr>
+<tr>
+<td>17</td>
+<td>November 12</td>
+<td>Saurashtra Cricket Association Stadium</td>
+<td>Rajkot</td>
+</tr>
+<tr>
+<td>18</td>
+<td>November 13</td>
+<td>Green Park Stadium</td>
+<td>Kanpur</td>
+</tr>
+<tr>
+<td>19</td>
+<td>November 14</td>
+<td>Maharashtra Cricket Association Stadium</td>
+<td>Rajkot</td>
+</tr>
+<tr>
+<td>20</td>
+<td>November 15</td>
+<td>Rajiv Gandhi International Cricket Stadium</td>
+<td>Dehradun</td>
+</tr>
+<tr>
+<td>21</td>
+<td>November 16</td>
+<td>Ekana Cricket Stadium</td>
+<td>Lucknow</td>
+</tr>
+<tr>
+<td>22</td>
+<td>November 17</td>
+<td>Shaheed Veer Narayan Singh International Cricket Stadium</td>
+<td>Raipur</td>
+</tr>
+<tr>
+<td>23</td>
+<td>November 18</td>
+<td>ACA-VDCA Stadium</td>
+<td>Visakhapatnam</td>
+</tr>
+<tr>
+<td>24</td>
+<td>November 19</td>
+<td>HPCA Stadium</td>
+<td>Dharamsala</td>
+</tr>
+<tr>
+<td>25</td>
+<td>November 20</td>
+<td>KSCA Stadium</td>
+<td>Belagavi</td>
+</tr>
+<tr>
+<td>26</td>
+<td>November 21</td>
+<td>Greater Noida Sports Complex Ground</td>
+<td>Greater Noida</td>
+</tr>
+<tr>
+<td>27</td>
+<td>November 22</td>
+<td>Srikantadatta Narasimha Raja Wadiyar Ground</td>
+<td>Mysuru</td>
+</tr>
+<tr>
+<td>28</td>
+<td>November 23</td>
+<td>Greenfield Stadium</td>
+<td>Karyavattom</td>
+</tr>
+<tr>
+<td>29</td>
+<td>November 24</td>
+<td>Sawai Mansingh Stadium</td>
+<td>Jaipur</td>
+</tr>
+<tr>
+<td>30</td>
+<td>November 25</td>
+<td>BKC</td>
+<td>Mumbai</td>
+</tr>
+<tr>
+<td>31</td>
+<td>November 26</td>
+<td>M. A. Aziz Stadium</td>
+<td>Chittagong (Bangladesh)</td>
+</tr>
+<tr>
+<td>32</td>
+<td>November 27</td>
+<td>Sher-e-Bangla Cricket Stadium</td>
+<td>Dhaka (Bangladesh)</td>
+</tr>
+</tbody>
+</table>
+<h2><span class="ez-toc-section" id="Qualified_Teams_for_the_ICC_Cricket_World_Cup_2023"></span>Qualified Teams for the ICC Cricket World Cup 2023<span class="ez-toc-section-end"></span></h2>
+<ul>
+<li>India</li>
+<li>Australia</li>
+<li>England</li>
+<li>South Africa</li>
+<li>Pakistan</li>
+<li>New Zealand</li>
+<li>West Indies</li>
+<li>Afghanistan</li>
+<li>Sri Lanka</li>
+<li>Bangladesh</li>
+</ul>
+<h2><span class="ez-toc-section" id="ICC_World_Cup_Winners_and_Runner-Up_Until_Now"></span>ICC World Cup Winners and Runner-Up Until Now<span class="ez-toc-section-end"></span></h2>
+<table>
+<thead>
+<tr>
+<th>Year</th>
+<th>Host</th>
+<th>Winner</th>
+<th>Runner-up</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1975</td>
+<td>England</td>
+<td>West Indies</td>
+<td>Australia</td>
+</tr>
+<tr>
+<td>1979</td>
+<td>England</td>
+<td>West Indies</td>
+<td>England</td>
+</tr>
+<tr>
+<td>1983</td>
+<td>England</td>
+<td>India</td>
+<td>West Indies</td>
+</tr>
+<tr>
+<td>1987</td>
+<td>India &amp; Pakistan</td>
+<td>Australia</td>
+<td>England</td>
+</tr>
+<tr>
+<td>1992</td>
+<td>Australia &amp; New Zealand</td>
+<td>Pakistan</td>
+<td>England</td>
+</tr>
+<tr>
+<td>1996</td>
+<td>India, Pakistan &amp; Sri Lanka</td>
+<td>Sri Lanka</td>
+<td>Australia</td>
+</tr>
+<tr>
+<td>1999</td>
+<td>England</td>
+<td>Australia</td>
+<td>Pakistan</td>
+</tr>
+<tr>
+<td>2003</td>
+<td>South Africa, Zimbabwe &amp; Kenya</td>
+<td>Australia</td>
+<td>India</td>
+</tr>
+<tr>
+<td>2007</td>
+<td>West Indies</td>
+<td>Australia</td>
+<td>Sri Lanka</td>
+</tr>
+<tr>
+<td>2011</td>
+<td>India, Sri Lanka &amp; Bangladesh</td>
+<td>India</td>
+<td>Sri Lanka</td>
+</tr>
+<tr>
+<td>2015</td>
+<td>Australia &amp; New Zealand</td>
+<td>Australia</td>
+<td>New Zealand</td>
+</tr>
+<tr>
+<td>2019</td>
+<td>England &amp; Wales</td>
+<td>England</td>
+<td>New Zealand</td>
+</tr>
+</tbody>
+</table>
+<p>For more information visit ICC cricket <a href="https://www.icc-cricket.com/homepage" target="_blank" rel="noopener">website.</a></p>
+<div class='heateor_sss_sharing_container heateor_sss_vertical_sharing heateor_sss_bottom_sharing' style='width:34px;left: -10px;top: 100px;-webkit-box-shadow:none;box-shadow:none;' data-heateor-sss-href='https://gozzipz.online/2023/03/31/icc-world-cup-2023-schedule/'><div class="heateor_sss_sharing_ul"><a class="heateor_sss_facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fgozzipz.online%2F2023%2F03%2F31%2Ficc-world-cup-2023-schedule%2F" title="Facebook" rel="nofollow noopener" target="_blank" style="font-size:32px!important;box-shadow:none;display:inline-block;vertical-align:middle"><span class="heateor_sss_svg" style="background-color:#3c589a;width:30px;height:30px;margin:0;display:inline-block;opacity:1;float:left;font-size:32px;box-shadow:none;display:inline-block;font-size:16px;padding:0 4px;vertical-align:middle;background-repeat:repeat;overflow:hidden;padding:0;cursor:pointer;box-sizing:content-box"><svg style="display:block;" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="-5 -5 42 42"><path d="M17.78 27.5V17.008h3.522l.527-4.09h-4.05v-2.61c0-1.182.33-1.99 2.023-1.99h2.166V4.66c-.375-.05-1.66-.16-3.155-.16-3.123 0-5.26 1.905-5.26 5.405v3.016h-3.53v4.09h3.53V27.5h4.223z" fill="#fff"></path></svg></span></a><a class="heateor_sss_button_twitter" href="http://twitter.com/intent/tweet?text=ICC%20World%20Cup%202023%20Schedule%20is%20Finally%20Here%21%20Get%20Ready%20to%20Roar&url=https%3A%2F%2Fgozzipz.online%2F2023%2F03%2F31%2Ficc-world-cup-2023-schedule%2F" title="Twitter" rel="nofollow noopener" target="_blank" style="font-size:32px!important;box-shadow:none;display:inline-block;vertical-align:middle"><span class="heateor_sss_svg heateor_sss_s__default heateor_sss_s_twitter" style="background-color:#55acee;width:30px;height:30px;margin:0;display:inline-block;opacity:1;float:left;font-size:32px;box-shadow:none;display:inline-block;font-size:16px;padding:0 4px;vertical-align:middle;background-repeat:repeat;overflow:hidden;padding:0;cursor:pointer;box-sizing:content-box"><svg style="display:block;" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="-4 -4 39 39"><path d="M28 8.557a9.913 9.913 0 0 1-2.828.775 4.93 4.93 0 0 0 2.166-2.725 9.738 9.738 0 0 1-3.13 1.194 4.92 4.92 0 0 0-3.593-1.55 4.924 4.924 0 0 0-4.794 6.049c-4.09-.21-7.72-2.17-10.15-5.15a4.942 4.942 0 0 0-.665 2.477c0 1.71.87 3.214 2.19 4.1a4.968 4.968 0 0 1-2.23-.616v.06c0 2.39 1.7 4.38 3.952 4.83-.414.115-.85.174-1.297.174-.318 0-.626-.03-.928-.086a4.935 4.935 0 0 0 4.6 3.42 9.893 9.893 0 0 1-6.114 2.107c-.398 0-.79-.023-1.175-.068a13.953 13.953 0 0 0 7.55 2.213c9.056 0 14.01-7.507 14.01-14.013 0-.213-.005-.426-.015-.637.96-.695 1.795-1.56 2.455-2.55z" fill="#fff"></path></svg></span></a><a class="heateor_sss_button_reddit" href="http://reddit.com/submit?url=https%3A%2F%2Fgozzipz.online%2F2023%2F03%2F31%2Ficc-world-cup-2023-schedule%2F&title=ICC%20World%20Cup%202023%20Schedule%20is%20Finally%20Here%21%20Get%20Ready%20to%20Roar" title="Reddit" rel="nofollow noopener" target="_blank" style="font-size:32px!important;box-shadow:none;display:inline-block;vertical-align:middle"><span class="heateor_sss_svg heateor_sss_s__default heateor_sss_s_reddit" style="background-color:#ff5700;width:30px;height:30px;margin:0;display:inline-block;opacity:1;float:left;font-size:32px;box-shadow:none;display:inline-block;font-size:16px;padding:0 4px;vertical-align:middle;background-repeat:repeat;overflow:hidden;padding:0;cursor:pointer;box-sizing:content-box"><svg style="display:block;" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="-3.5 -3.5 39 39"><path d="M28.543 15.774a2.953 2.953 0 0 0-2.951-2.949 2.882 2.882 0 0 0-1.9.713 14.075 14.075 0 0 0-6.85-2.044l1.38-4.349 3.768.884a2.452 2.452 0 1 0 .24-1.176l-4.274-1a.6.6 0 0 0-.709.4l-1.659 5.224a14.314 14.314 0 0 0-7.316 2.029 2.908 2.908 0 0 0-1.872-.681 2.942 2.942 0 0 0-1.618 5.4 5.109 5.109 0 0 0-.062.765c0 4.158 5.037 7.541 11.229 7.541s11.22-3.383 11.22-7.541a5.2 5.2 0 0 0-.053-.706 2.963 2.963 0 0 0 1.427-2.51zm-18.008 1.88a1.753 1.753 0 0 1 1.73-1.74 1.73 1.73 0 0 1 1.709 1.74 1.709 1.709 0 0 1-1.709 1.711 1.733 1.733 0 0 1-1.73-1.711zm9.565 4.968a5.573 5.573 0 0 1-4.081 1.272h-.032a5.576 5.576 0 0 1-4.087-1.272.6.6 0 0 1 .844-.854 4.5 4.5 0 0 0 3.238.927h.032a4.5 4.5 0 0 0 3.237-.927.6.6 0 1 1 .844.854zm-.331-3.256a1.726 1.726 0 1 1 1.709-1.712 1.717 1.717 0 0 1-1.712 1.712z" fill="#fff"/></svg></span></a><a class="heateor_sss_button_linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fgozzipz.online%2F2023%2F03%2F31%2Ficc-world-cup-2023-schedule%2F&title=ICC%20World%20Cup%202023%20Schedule%20is%20Finally%20Here%21%20Get%20Ready%20to%20Roar" title="Linkedin" rel="nofollow noopener" target="_blank" style="font-size:32px!important;box-shadow:none;display:inline-block;vertical-align:middle"><span class="heateor_sss_svg heateor_sss_s__default heateor_sss_s_linkedin" style="background-color:#0077b5;width:30px;height:30px;margin:0;display:inline-block;opacity:1;float:left;font-size:32px;box-shadow:none;display:inline-block;font-size:16px;padding:0 4px;vertical-align:middle;background-repeat:repeat;overflow:hidden;padding:0;cursor:pointer;box-sizing:content-box"><svg style="display:block;" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 32 32"><path d="M6.227 12.61h4.19v13.48h-4.19V12.61zm2.095-6.7a2.43 2.43 0 0 1 0 4.86c-1.344 0-2.428-1.09-2.428-2.43s1.084-2.43 2.428-2.43m4.72 6.7h4.02v1.84h.058c.56-1.058 1.927-2.176 3.965-2.176 4.238 0 5.02 2.792 5.02 6.42v7.395h-4.183v-6.56c0-1.564-.03-3.574-2.178-3.574-2.18 0-2.514 1.7-2.514 3.46v6.668h-4.187V12.61z" fill="#fff"></path></svg></span></a><a class="heateor_sss_button_pinterest" href="https://gozzipz.online/2023/03/31/icc-world-cup-2023-schedule/" onclick="event.preventDefault();javascript:void( (function() {var e=document.createElement('script' );e.setAttribute('type','text/javascript' );e.setAttribute('charset','UTF-8' );e.setAttribute('src','//assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)})());" title="Pinterest" rel="nofollow noopener" style="font-size:32px!important;box-shadow:none;display:inline-block;vertical-align:middle"><span class="heateor_sss_svg heateor_sss_s__default heateor_sss_s_pinterest" style="background-color:#cc2329;width:30px;height:30px;margin:0;display:inline-block;opacity:1;float:left;font-size:32px;box-shadow:none;display:inline-block;font-size:16px;padding:0 4px;vertical-align:middle;background-repeat:repeat;overflow:hidden;padding:0;cursor:pointer;box-sizing:content-box"><svg style="display:block;" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="-2 -2 35 35"><path fill="#fff" d="M16.539 4.5c-6.277 0-9.442 4.5-9.442 8.253 0 2.272.86 4.293 2.705 5.046.303.125.574.005.662-.33.061-.231.205-.816.27-1.06.088-.331.053-.447-.191-.736-.532-.627-.873-1.439-.873-2.591 0-3.338 2.498-6.327 6.505-6.327 3.548 0 5.497 2.168 5.497 5.062 0 3.81-1.686 7.025-4.188 7.025-1.382 0-2.416-1.142-2.085-2.545.397-1.674 1.166-3.48 1.166-4.689 0-1.081-.581-1.983-1.782-1.983-1.413 0-2.548 1.462-2.548 3.419 0 1.247.421 2.091.421 2.091l-1.699 7.199c-.505 2.137-.076 4.755-.039 5.019.021.158.223.196.314.077.13-.17 1.813-2.247 2.384-4.324.162-.587.929-3.631.929-3.631.46.876 1.801 1.646 3.227 1.646 4.247 0 7.128-3.871 7.128-9.053.003-3.918-3.317-7.568-8.361-7.568z"/></svg></span></a><a class="heateor_sss_whatsapp" href="https://api.whatsapp.com/send?text=ICC%20World%20Cup%202023%20Schedule%20is%20Finally%20Here%21%20Get%20Ready%20to%20Roar https%3A%2F%2Fgozzipz.online%2F2023%2F03%2F31%2Ficc-world-cup-2023-schedule%2F" title="Whatsapp" rel="nofollow noopener" target="_blank" style="font-size:32px!important;box-shadow:none;display:inline-block;vertical-align:middle"><span class="heateor_sss_svg" style="background-color:#55eb4c;width:30px;height:30px;margin:0;display:inline-block;opacity:1;float:left;font-size:32px;box-shadow:none;display:inline-block;font-size:16px;padding:0 4px;vertical-align:middle;background-repeat:repeat;overflow:hidden;padding:0;cursor:pointer;box-sizing:content-box"><svg style="display:block;" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="-6 -5 40 40"><path class="heateor_sss_svg_stroke heateor_sss_no_fill" stroke="#fff" stroke-width="2" fill="none" d="M 11.579798566743314 24.396926207859085 A 10 10 0 1 0 6.808479557110079 20.73576436351046"></path><path d="M 7 19 l -1 6 l 6 -1" class="heateor_sss_no_fill heateor_sss_svg_stroke" stroke="#fff" stroke-width="2" fill="none"></path><path d="M 10 10 q -1 8 8 11 c 5 -1 0 -6 -1 -3 q -4 -3 -5 -5 c 4 -2 -1 -5 -1 -4" fill="#fff"></path></svg></span></a><a class="heateor_sss_button_instagram" href="https://www.instagram.com/" title="Instagram" rel="nofollow noopener" target="_blank" style="font-size:32px!important;box-shadow:none;display:inline-block;vertical-align:middle"><span class="heateor_sss_svg" style="background-color:#53beee;width:30px;height:30px;margin:0;display:inline-block;opacity:1;float:left;font-size:32px;box-shadow:none;display:inline-block;font-size:16px;padding:0 4px;vertical-align:middle;background-repeat:repeat;overflow:hidden;padding:0;cursor:pointer;box-sizing:content-box"><svg style="display:block;" version="1.1" viewBox="-10 -10 148 148" width="100%" height="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><g><path d="M86,112H42c-14.336,0-26-11.663-26-26V42c0-14.337,11.664-26,26-26h44c14.337,0,26,11.663,26,26v44 C112,100.337,100.337,112,86,112z M42,24c-9.925,0-18,8.074-18,18v44c0,9.925,8.075,18,18,18h44c9.926,0,18-8.075,18-18V42 c0-9.926-8.074-18-18-18H42z" fill="#fff"></path></g><g><path d="M64,88c-13.234,0-24-10.767-24-24c0-13.234,10.766-24,24-24s24,10.766,24,24C88,77.233,77.234,88,64,88z M64,48c-8.822,0-16,7.178-16,16s7.178,16,16,16c8.822,0,16-7.178,16-16S72.822,48,64,48z" fill="#fff"></path></g><g><circle cx="89.5" cy="38.5" fill="#fff" r="5.5"></circle></g></g></svg></span></a><a class="heateor_sss_more" title="More" rel="nofollow noopener" style="font-size: 32px!important;border:0;box-shadow:none;display:inline-block!important;font-size:16px;padding:0 4px;vertical-align: middle;display:inline;" href="https://gozzipz.online/2023/03/31/icc-world-cup-2023-schedule/" onclick="event.preventDefault()"><span class="heateor_sss_svg" style="background-color:#ee8e2d;width:30px;height:30px;margin:0;display:inline-block!important;opacity:1;float:left;font-size:32px!important;box-shadow:none;display:inline-block;font-size:16px;padding:0 4px;vertical-align:middle;display:inline;background-repeat:repeat;overflow:hidden;padding:0;cursor:pointer;box-sizing:content-box;" onclick="heateorSssMoreSharingPopup(this, 'https://gozzipz.online/2023/03/31/icc-world-cup-2023-schedule/', 'ICC%20World%20Cup%202023%20Schedule%20is%20Finally%20Here%21%20Get%20Ready%20to%20Roar', '' )"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-.3 0 32 32" version="1.1" width="100%" height="100%" style="display:block;" xml:space="preserve"><g><path fill="#fff" d="M18 14V8h-4v6H8v4h6v6h4v-6h6v-4h-6z" fill-rule="evenodd"></path></g></svg></span></a></div><div class="heateorSssClear"></div></div>    </div><!-- .entry-content -->
+
+    <div class="entry-meta">
+
+      <div class="entry-category-content">
+        <span>Categories:</span>
+        <a href="https://gozzipz.online/category/around-th-web/" rel="category tag">Around the Web</a>      </div><!-- .category-title -->
+      
+              <div class="entry-tags-content">
+          Tags: <a href="https://gozzipz.online/tag/cricket-world-cup-2023/" rel="tag">Cricket world cup 2023</a>, <a href="https://gozzipz.online/tag/icc-world-cup-2023-schedule/" rel="tag">ICC World Cup 2023 Schedule</a>        </div>
+      <!-- .tags-title -->
+
+    </div><!-- .entry-meta -->
+
+  </div><!-- .entry-body -->
+  
+</article><!-- #post-167 -->  
+
+	<nav class="navigation post-navigation" aria-label="Posts">
+		<h2 class="screen-reader-text">Post navigation</h2>
+		<div class="nav-links"><div class="nav-previous"><a href="https://gozzipz.online/2023/03/30/iphone-15-features/" rel="prev"><span class="nav-subtitle">Previous:</span> <span class="nav-title">What to Expect from exciting iPhone 15 Features?</span></a></div><div class="nav-next"><a href="https://gozzipz.online/2023/04/01/ipl-matches-list/" rel="next"><span class="nav-subtitle">Next:</span> <span class="nav-title">IPL Matches List: 2023 Season Superb: Complete List&#8221;</span></a></div></div>
+	</nav>
+<div id="comments" class="comments-area">
+
+			<h2 class="comments-title">
+			One thought on &ldquo;ICC World Cup 2023 Schedule is Finally Here! Get Ready to Roar&rdquo;		</h2>
+
+		
+		<ol class="comment-list">
+					<li id="comment-2" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href="https://gozzipz.online/2023/04/01/ipl-matches-list/" class="url" rel="ugc">IPL Matches List: 2023 Season Superb: Complete List&quot; - Gossips world</a> 			</div>
+		</li><!-- #comment-## -->
+		</ol><!-- .comment-list -->
+
+		
+	
+	
+		<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/2023/03/31/icc-world-cup-2023-schedule/#respond" style="display:none;">Cancel reply</a></small></h3><form action="https://gozzipz.online/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate><p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> <span class="required-field-message">Required fields are marked <span class="required">*</span></span></p><p class="comment-form-comment"><label for="comment">Comment <span class="required">*</span></label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required></textarea></p><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" autocomplete="name" required /></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" autocomplete="email" required /></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="url" value="" size="30" maxlength="200" autocomplete="url" /></p>
+<p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes" /> <label for="wp-comment-cookies-consent">Save my name, email, and website in this browser for the next time I comment.</label></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment" /> <input type='hidden' name='comment_post_ID' value='167' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p></form>	</div><!-- #respond -->
+	
+</div><!-- .comments-area -->
+
+		</main><!-- #main -->
+
+		<aside class="widget-area">
+      <section id="block-2" class="widget widget_block widget_search"><form role="search" method="get" action="https://gozzipz.online/" class="wp-block-search__button-outside wp-block-search__text-button wp-block-search"><label for="wp-block-search__input-1" class="wp-block-search__label" >Search</label><div class="wp-block-search__inside-wrapper " ><input type="search" id="wp-block-search__input-1" class="wp-block-search__input" name="s" value="" placeholder=""  required /><button type="submit" class="wp-block-search__button wp-element-button"  >Search</button></div></form></section><section id="block-3" class="widget widget_block"><div class="wp-block-group is-layout-flow"><div class="wp-block-group__inner-container"><h2 class="wp-block-heading">Recent Posts</h2><ul class="wp-block-latest-posts__list wp-block-latest-posts"><li><a class="wp-block-latest-posts__post-title" href="https://gozzipz.online/2023/04/30/top-freelancing-websites-in-pakistan/">Top Freelancing Websites in Pakistan for Beginners</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="https://gozzipz.online/2023/04/28/monkeypox-in-pakistan-an-outbreak/">Monkeypox in Pakistan: An Outbreak?</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="https://gozzipz.online/2023/04/26/monkeypox-in-pakistan-what-is-monkeypox/">MonkeyPox in Pakistan: What is MonkeyPox What You Need to Know About Dangerous Disease</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="https://gozzipz.online/2023/04/21/narcissism-in-pakistan/">Narcissism in Pakistan: A Revolutionary Perspective</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="https://gozzipz.online/2023/04/18/new-zealand-vs-pakistan-highlights-t20i/">Unforgettable: New Zealand vs Pakistan Highlights T20I</a></li>
+</ul></div></div></section><section id="block-4" class="widget widget_block"><div class="wp-block-group is-layout-flow"><div class="wp-block-group__inner-container"><h2 class="wp-block-heading">Recent Comments</h2><ol class="wp-block-latest-comments"><li class="wp-block-latest-comments__comment"><article><footer class="wp-block-latest-comments__comment-meta"><a class="wp-block-latest-comments__comment-author" href="https://www.ifashionstyles.com">Beauty Fashion</a> on <a class="wp-block-latest-comments__comment-link" href="https://gozzipz.online/2023/04/16/watch-pakistan-vs-new-zealand-2023/#comment-12">Watch Pakistan vs New Zealand 2023 Thrilling Game live</a></footer></article></li><li class="wp-block-latest-comments__comment"><article><footer class="wp-block-latest-comments__comment-meta"><a class="wp-block-latest-comments__comment-author" href="https://gozzipz.online/2023/04/18/new-zealand-vs-pakistan-highlights-t20i/">Unforgettable: New Zealand vs Pakistan Highlights T20I - Gossips World</a> on <a class="wp-block-latest-comments__comment-link" href="https://gozzipz.online/2023/04/16/watch-pakistan-vs-new-zealand-2023/#comment-11">Watch Pakistan vs New Zealand 2023 Thrilling Game live</a></footer></article></li><li class="wp-block-latest-comments__comment"><article><footer class="wp-block-latest-comments__comment-meta"><a class="wp-block-latest-comments__comment-author" href="https://gozzipz.online/2023/04/11/best-5-japanese-asmr-youtube/">Best 5 Japanese ASMR Youtube Channels to Subscribe to - Gossips World</a> on <a class="wp-block-latest-comments__comment-link" href="https://gozzipz.online/2023/04/04/what-is-japanese-asmr-and-how-does-it-work/#comment-8">What is Japanese ASMR and How Does it Work?</a></footer></article></li><li class="wp-block-latest-comments__comment"><article><footer class="wp-block-latest-comments__comment-meta"><a class="wp-block-latest-comments__comment-author" href="https://gozzipz.online/2023/04/07/the-top-5-japanese-asmr-triggers/">The Top 5 Japanese ASMR Triggers - Gossips world</a> on <a class="wp-block-latest-comments__comment-link" href="https://gozzipz.online/2023/04/04/what-is-japanese-asmr-and-how-does-it-work/#comment-6">What is Japanese ASMR and How Does it Work?</a></footer></article></li><li class="wp-block-latest-comments__comment"><article><footer class="wp-block-latest-comments__comment-meta"><a class="wp-block-latest-comments__comment-author" href="https://gozzipz.online/2023/04/05/top-10-japanese-asmr-videos/">Top 10 Japanese ASMR Videos You Need to Watch - Gossips world</a> on <a class="wp-block-latest-comments__comment-link" href="https://gozzipz.online/2023/04/04/what-is-japanese-asmr-and-how-does-it-work/#comment-5">What is Japanese ASMR and How Does it Work?</a></footer></article></li></ol></div></div></section><section id="block-5" class="widget widget_block"><div class="wp-block-group is-layout-flow"><div class="wp-block-group__inner-container"><h2 class="wp-block-heading">Archives</h2><ul class="wp-block-archives-list wp-block-archives">	<li><a href='https://gozzipz.online/2023/04/'>April 2023</a></li>
+	<li><a href='https://gozzipz.online/2023/03/'>March 2023</a></li>
+</ul></div></div></section><section id="block-6" class="widget widget_block"><div class="wp-block-group is-layout-flow"><div class="wp-block-group__inner-container"><h2 class="wp-block-heading">Categories</h2><ul class="wp-block-categories-list wp-block-categories">	<li class="cat-item cat-item-22"><a href="https://gozzipz.online/category/around-th-web/">Around the Web</a>
+</li>
+	<li class="cat-item cat-item-18"><a href="https://gozzipz.online/category/entertainment/">Entertainment</a>
+</li>
+	<li class="cat-item cat-item-15"><a href="https://gozzipz.online/category/home/">Home</a>
+</li>
+	<li class="cat-item cat-item-10"><a href="https://gozzipz.online/category/news/">News</a>
+</li>
+	<li class="cat-item cat-item-9"><a href="https://gozzipz.online/category/self-help/">Self-help</a>
+</li>
+</ul></div></div></section>    </aside><!-- .widget-area -->
+
+	</div><!-- #primary -->
+
+
+  <footer class="site-footer">
+  
+    <div class="site-info">
+      <a href="https://wordpress.org/" target="_blank">
+        Proudly powered by WordPress      </a>
+
+      <span class="sep"> | </span>
+
+      Theme: <a href="https://wordpress.org/themes/really-simple/" target="_blank">Really Simple</a> by Flaubert Henriques
+      <span class="sep"> | </span>
+
+      <a href="https://www.gnu.org/licenses/old-licenses/gpl-2.0.html" target="_blank">
+        LICENSE      </a>
+    </div><!-- .site-info -->
+
+  </footer><!-- .site-footer -->
+
+  <script type="rocketlazyloadscript" id='rocket-browser-checker-js-after'>
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+</script>
+<script id='rocket-preload-links-js-extra'>
+var RocketPreloadLinksConfig = {"excludeUris":"\/(?:.+\/)?feed(?:\/(?:.+\/?)?)?$|\/(?:.+\/)?embed\/|\/(index\\.php\/)?(.*)wp\\-json(\/.*|$)|\/refer\/|\/go\/|\/recommend\/|\/recommends\/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https:\/\/gozzipz.online","onHoverDelay":"100","rateThrottle":"3"};
+</script>
+<script type="rocketlazyloadscript" id='rocket-preload-links-js-after'>
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+</script>
+<script type="rocketlazyloadscript" data-rocket-src='https://gozzipz.online/wp-includes/js/comment-reply.min.js?ver=6.2' id='comment-reply-js' defer></script>
+<script type="rocketlazyloadscript" id='heateor_sss_sharing_js-js-before'>
+function heateorSssLoadEvent(e) {var t=window.onload;if (typeof window.onload!="function") {window.onload=e}else{window.onload=function() {t();e()}}};	var heateorSssSharingAjaxUrl = 'https://gozzipz.online/wp-admin/admin-ajax.php', heateorSssCloseIconPath = 'https://gozzipz.online/wp-content/plugins/sassy-social-share/public/../images/close.png', heateorSssPluginIconPath = 'https://gozzipz.online/wp-content/plugins/sassy-social-share/public/../images/logo.png', heateorSssHorizontalSharingCountEnable = 0, heateorSssVerticalSharingCountEnable = 0, heateorSssSharingOffset = -10; var heateorSssMobileStickySharingEnabled = 1;var heateorSssCopyLinkMessage = "Link copied.";var heateorSssUrlCountFetched = [], heateorSssSharesText = 'Shares', heateorSssShareText = 'Share';function heateorSssPopup(e) {window.open(e,"popUpWindow","height=400,width=600,left=400,top=100,resizable,scrollbars,toolbar=0,personalbar=0,menubar=no,location=no,directories=no,status")}
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-src='https://gozzipz.online/wp-content/cache/min/1/wp-content/plugins/sassy-social-share/public/js/sassy-social-share-public.js?ver=1680896523' id='heateor_sss_sharing_js-js' defer></script>
+<script id='eael-general-js-extra'>
+var localize = {"ajaxurl":"https:\/\/gozzipz.online\/wp-admin\/admin-ajax.php","nonce":"6f86f937fc","i18n":{"added":"Added ","compare":"Compare","loading":"Loading..."},"eael_translate_text":{"required_text":"is a required field","invalid_text":"Invalid","billing_text":"Billing","shipping_text":"Shipping","fg_mfp_counter_text":"of"},"page_permalink":"https:\/\/gozzipz.online\/2023\/03\/31\/icc-world-cup-2023-schedule\/","cart_redirectition":"","cart_page_url":"","el_breakpoints":{"mobile":{"label":"Mobile Portrait","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Landscape","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet Portrait","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Landscape","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Widescreen","value":2400,"default_value":2400,"direction":"min","is_enabled":false}}};
+</script>
+<script type="rocketlazyloadscript" data-rocket-src='https://gozzipz.online/wp-content/plugins/essential-addons-for-elementor-lite/assets/front-end/js/view/general.min.js?ver=5.7.1' id='eael-general-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-src='https://gozzipz.online/wp-content/plugins/easy-table-of-contents/vendor/js-cookie/js.cookie.min.js?ver=2.2.1' id='ez-toc-js-cookie-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-src='https://gozzipz.online/wp-content/plugins/easy-table-of-contents/vendor/sticky-kit/jquery.sticky-kit.min.js?ver=1.9.2' id='ez-toc-jquery-sticky-kit-js' defer></script>
+<script id='ez-toc-js-js-extra'>
+var ezTOC = {"smooth_scroll":"1","visibility_hide_by_default":"","width":"auto","scroll_offset":"30","fallbackIcon":"<span style=\"display: flex;align-items: center;width: 35px;height: 30px;justify-content: center;direction:ltr;\"><svg style=\"fill: #999;color:#999\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" class=\"list-377408\" width=\"20px\" height=\"20px\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M6 6H4v2h2V6zm14 0H8v2h12V6zM4 11h2v2H4v-2zm16 0H8v2h12v-2zM4 16h2v2H4v-2zm16 0H8v2h12v-2z\" fill=\"currentColor\"><\/path><\/svg><svg style=\"fill: #999;color:#999\" class=\"arrow-unsorted-368013\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"10px\" height=\"10px\" viewBox=\"0 0 24 24\" version=\"1.2\" baseProfile=\"tiny\"><path d=\"M18.2 9.3l-6.2-6.3-6.2 6.3c-.2.2-.3.4-.3.7s.1.5.3.7c.2.2.4.3.7.3h11c.3 0 .5-.1.7-.3.2-.2.3-.5.3-.7s-.1-.5-.3-.7zM5.8 14.7l6.2 6.3 6.2-6.3c.2-.2.3-.5.3-.7s-.1-.5-.3-.7c-.2-.2-.4-.3-.7-.3h-11c-.3 0-.5.1-.7.3-.2.2-.3.5-.3.7s.1.5.3.7z\"\/><\/svg><\/span>"};
+</script>
+<script type="rocketlazyloadscript" data-rocket-src='https://gozzipz.online/wp-content/plugins/easy-table-of-contents/assets/js/front.min.js?ver=2.0.47.1-1682950934' id='ez-toc-js-js' defer></script>
+
+<script>class RocketElementorAnimation{constructor(){this.deviceMode=document.createElement("span"),this.deviceMode.id="elementor-device-mode",this.deviceMode.setAttribute("class","elementor-screen-only"),document.body.appendChild(this.deviceMode)}_detectAnimations(){let t=getComputedStyle(this.deviceMode,":after").content.replace(/"/g,"");this.animationSettingKeys=this._listAnimationSettingsKeys(t),document.querySelectorAll(".elementor-invisible[data-settings]").forEach(t=>{const e=t.getBoundingClientRect();if(e.bottom>=0&&e.top<=window.innerHeight)try{this._animateElement(t)}catch(t){}})}_animateElement(t){const e=JSON.parse(t.dataset.settings),i=e._animation_delay||e.animation_delay||0,n=e[this.animationSettingKeys.find(t=>e[t])];if("none"===n)return void t.classList.remove("elementor-invisible");t.classList.remove(n),this.currentAnimation&&t.classList.remove(this.currentAnimation),this.currentAnimation=n;let s=setTimeout(()=>{t.classList.remove("elementor-invisible"),t.classList.add("animated",n),this._removeAnimationSettings(t,e)},i);window.addEventListener("rocket-startLoading",function(){clearTimeout(s)})}_listAnimationSettingsKeys(t="mobile"){const e=[""];switch(t){case"mobile":e.unshift("_mobile");case"tablet":e.unshift("_tablet");case"desktop":e.unshift("_desktop")}const i=[];return["animation","_animation"].forEach(t=>{e.forEach(e=>{i.push(t+e)})}),i}_removeAnimationSettings(t,e){this._listAnimationSettingsKeys().forEach(t=>delete e[t]),t.dataset.settings=JSON.stringify(e)}static run(){const t=new RocketElementorAnimation;requestAnimationFrame(t._detectAnimations.bind(t))}}document.addEventListener("DOMContentLoaded",RocketElementorAnimation.run);</script></body>
+
+</html>
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1683028474 -->
+
